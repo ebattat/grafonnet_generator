@@ -34,6 +34,6 @@ jobs:
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name  ${{ secrets.USER_NAME }}
-          git add /home/runner/work/grafonnet_generator/grafonnet_generator/grafana/output.json
+          git add grafana/output.json
           git commit -m "Update grafana json file"
           git push
