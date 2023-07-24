@@ -21,7 +21,7 @@ jobs:
 
       - name: Update grafana json file
         run: |
-          sudo podman run --rm -d --name run_grafonnet -v /grafonnet_generator/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
+          sudo podman run --rm -d --name run_grafonnet -v /grafonnet_generator/grafana:/app --privileged quay.io/ebattat/run_grafonnet
 
       - name: Check for changes in grafana json file
         id: check_changes
