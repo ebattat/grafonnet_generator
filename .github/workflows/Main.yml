@@ -21,6 +21,8 @@ jobs:
 
       - name: Update grafana json file
         run: |
+          echo $HOME
+          echo $GITHUB_WORKSPACE
           sudo podman run --rm --name run_grafonnet -v /home/runner/work/grafonnet_generator/grafonnet_generator/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
       - name: Check for changes in grafana json file
