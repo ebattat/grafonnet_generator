@@ -29,4 +29,9 @@ jobs:
           git config --global user.name  ${{ secrets.USER_NAME }}
           git add grafana/output.json
           git commit -m "Update grafana json file"
+
+          # Pull the latest changes from the remote main branch
+          git pull origin main
+
+          # Push the changes to the remote main branch
           git push
