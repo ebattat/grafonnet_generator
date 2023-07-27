@@ -12,6 +12,24 @@ class GrafanaOperations:
         self.json_dashboard_path = json_dashboard_path
         self.dashboard_data = {}
 
+    def fetch_all_dashboards(self):
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+        }
+
+        try:
+            response = requests.get(f"{self.grafana_url}/api/search", headers=headers)
+
+            if response.status_code == 200:
+                dashboards = response.json()
+                for dashboard in dashboards:
+                    print(f"Dashboard ID: {dashboard['id']}, Title: {dashboard['title']}")
+            else:
+                print(f"Failed to fetch dashboards. Status code: {response.status_code}")
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching dashboards: {e}")
+
     def increment_dashboard_version(self):
         """
         This method increases dashboard version
