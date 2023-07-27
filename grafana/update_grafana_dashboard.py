@@ -10,6 +10,7 @@ grafana_operations = GrafanaOperations(grafana_url=grafana_url,
                                        api_key=api_key,
                                        json_dashboard_path=json_dashboard_path)
 
+
 # Update generate grafana dashboard
 # for debug: grafana_operations.fetch_all_dashboards()
 grafana_operations.read_dashboard_json()
