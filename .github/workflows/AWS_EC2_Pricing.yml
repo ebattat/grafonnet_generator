@@ -31,7 +31,7 @@ jobs:
       - name: Check for changes in AWS EC2 pricing
         id: check_changes
         run: |
-          git diff --exit-code aws_pricing/ec2/ec2_on_demand_price.json && git diff --exit-code aws_pricing/ec2/ec2_spot_price.json || echo "::set-output name=changes::true"
+          git diff HEAD --exit-code aws_pricing/ec2_on_demand_price.json && git diff HEAD --exit-code aws_pricing/ec2_spot_price.json || echo "::set-output name=changes::true"
 
       - name: commit AWS EC2 pricing files
         if: steps.check_changes.outputs.changes == 'true'
