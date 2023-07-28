@@ -32,7 +32,6 @@ jobs:
       - name: Check for changes in AWS EC2 pricing
         id: check_changes
         run: |
-          ls -l ${{ github.workspace }}/aws_pricing/ec2
           git diff --quiet || echo "::set-output name=changes::true"
 
       - name: commit AWS EC2 pricing files
