@@ -1,3 +1,5 @@
+
+import os
 import json
 import boto3
 from pkg_resources import resource_filename
@@ -7,11 +9,12 @@ class EC2Pricing:
     """
     This class gets spot/on-demand instance type pricing
     """
-    def __init__(self):
+    def __init__(self, output_path: str):
         self.region_name = 'us-west-2'
         self.ec2_client = boto3.client('ec2', region_name=self.region_name)
         # region_name must be 'us-east-1'
         self.__client = boto3.client('pricing', region_name='us-east-1')
+        self.output_path = output_path
 
     def get_region_code(self):
         """
@@ -52,7 +55,7 @@ class EC2Pricing:
             # print(instance_type, price)
             if float(price) > 0:
                 region_pricing[instance_type] = round(float(price), 4)
-        with open(f'{price_type.__name__}.json', 'w') as file:
+        with open(os.path.join(self.output_path, f'{price_type.__name__}.json'), 'w') as file:
             json.dump(region_pricing, file, indent=4)
 
     def ec2_spot_price(self, instance_type: str):
@@ -102,7 +105,3 @@ class EC2Pricing:
         @return:
         """
         self.ec2_prices(price_type=self.ec2_on_demand_price)
-
-
-EC2Pricing().ec2_spot_prices()
-EC2Pricing().ec2_on_demand_prices()
