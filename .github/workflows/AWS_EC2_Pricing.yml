@@ -1,4 +1,4 @@
-name: AWS Pricing
+name: AWS EC2 Pricing
 
 on:
   # Run Nightly
@@ -31,7 +31,7 @@ jobs:
       - name: Check for changes in AWS Ec2 pricing
         id: check_changes
         run: |
-          git diff --quiet || echo "::set-output name=changes::true"
+          git diff --exit-code aws_pricing/ec2_on_demand_price.json && git diff --exit-code aws_pricing/ec2_spot_price.json || echo "::set-output name=changes::true"
 
       - name: commit AWS Ec2 pricing files
         if: steps.check_changes.outputs.changes == 'true'
