@@ -8,7 +8,7 @@ on:
 
 jobs:
   aws_ec2_pricing:
-    name: aws ec2 pricing
+    name: AWS EC2 pricing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -22,25 +22,25 @@ jobs:
       - name: Install dependencies
         run: pip install boto3
 
-      - name: Generate AWS Ec2 Pricing
+      - name: Generate AWS EC2 Pricing
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
         run: python $GITHUB_WORKSPACE/aws_pricing/ec2/ec2_pricing.py
 
-      - name: Check for changes in AWS Ec2 pricing
+      - name: Check for changes in AWS EC2 pricing
         id: check_changes
         run: |
-          git diff --exit-code aws_pricing/ec2_on_demand_price.json && git diff --exit-code aws_pricing/ec2_spot_price.json || echo "::set-output name=changes::true"
+          git diff --exit-code aws_pricing/ec2/ec2_on_demand_price.json && git diff --exit-code aws_pricing/ec2/ec2_spot_price.json || echo "::set-output name=changes::true"
 
-      - name: commit AWS Ec2 pricing files
+      - name: commit AWS EC2 pricing files
         if: steps.check_changes.outputs.changes == 'true'
         run: |
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name  ${{ secrets.USER_NAME }}
-          git add aws_pricing/ec2_on_demand_price.json
-          git add aws_pricing/ec2_spot_price.json
+          git add aws_pricing/ec2/ec2_on_demand_price.json
+          git add aws_pricing/ec2/ec2_spot_price.json
           git commit -m "Update ec2 price json files"
 
           # Pull the latest changes from the remote main branch
