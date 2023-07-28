@@ -19,7 +19,8 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-            git diff --quiet || echo "::set-output name=changes::true"
+          git diff --exit-code grafana/output.json || echo "::set-output name=changes::true"
+
 
       - name: commit grafana json file
         if: steps.check_changes.outputs.changes == 'true'
