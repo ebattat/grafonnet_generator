@@ -26,7 +26,8 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-        run: python $GITHUB_WORKSPACE/aws_pricing/ec2/ec2_pricing.py
+          OUTPUT_PATH: ${{ github.workspace }}/aws_pricing/ec2
+        run: python $OUTPUT_PATH/ec2_pricing.py
 
       - name: Check for changes in AWS EC2 pricing
         id: check_changes
