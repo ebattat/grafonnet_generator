@@ -26,7 +26,7 @@ jobs:
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
-          OUTPUT_PATH: ${{ github.workspace }}/aws_pricing/ec2
+          OUTPUT_PATH: $HOME/grafonnet_generator/aws_pricing/ec2
         run: python $OUTPUT_PATH/ec2_pricing.py
 
       - name: Check for changes in AWS EC2 pricing
