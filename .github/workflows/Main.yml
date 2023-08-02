@@ -22,6 +22,7 @@ jobs:
           git diff --quiet || echo "changes=true" >> $GITHUB_OUTPUT
           echo ${{ env.changes }}
 
+
       - name: Commit grafana json file
         if: ${{ env.changes }} == 'true'
         run: |
