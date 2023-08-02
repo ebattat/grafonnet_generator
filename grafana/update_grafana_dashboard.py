@@ -19,5 +19,4 @@ grafana_operations.write_dashboard_json()
 grafana_operations.override_dashboard()
 
 # Error: 412 - need to find last working index
-# Failed to override dashboard 'PerfCI-Regression-Summary Copy'. Status code: 412 => must do change when updating new json
 # The 412 status code is used when a newer dashboard already exists (newer, its version is greater than the version that was sent). The same status code is also used if another dashboard exists with the same title.
