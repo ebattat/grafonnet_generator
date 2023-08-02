@@ -19,8 +19,7 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet || echo "::set-output name=changes::true"
-
+          git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "::set-output name=changes::true"
 
       - name: Commit grafana json file
         if: steps.check_changes.outputs.changes == 'true'
@@ -37,4 +36,3 @@ jobs:
 
           # Push the changes to the remote main branch
           git push
-
