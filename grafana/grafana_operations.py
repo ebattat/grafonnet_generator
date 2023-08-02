@@ -1,7 +1,6 @@
 import requests
 import json
 
-
 class GrafanaOperations:
     """
     This class responsible for Grafana operations
