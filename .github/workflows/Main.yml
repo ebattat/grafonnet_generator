@@ -24,7 +24,7 @@ jobs:
 
 
       - name: Commit grafana json file
-        if: "${{ env.changes }}"  == 'true'
+        if: ${{ env.changes }}  == 'true'
         run: |
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
