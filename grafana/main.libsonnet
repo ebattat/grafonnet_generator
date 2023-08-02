@@ -5186,7 +5186,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
         + g.panel.row.withId(176)
 
           + g.panel.row.withPanels([
-            g.panel.stateTimeline.new('300 Fedora37 VMs(Sec)')
+            g.panel.stateTimeline.new('240 Fedora37 VMs(Sec)')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-bootstorm-results')
             + g.panel.stateTimeline.withDescription('Time till VM Login - Lower is better')
 
@@ -5197,12 +5197,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + stateTimeline.fieldConfig.defaults.withDecimals(1)
             + stateTimeline.fieldConfig.defaults.withMappings([
               stateTimeline.valueMapping.ValueMap.withOptions(
-                {	
-                  "0": {	
-                  "color": "transparent",	
-                  "index": 0,	
-                  "text": "."	
-                  }     	
+                {
+                  "0": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "."
+                  }
                 }
               )
               + stateTimeline.valueMapping.ValueMap.withType('value')
@@ -5254,7 +5254,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('Min')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5263,13 +5263,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5279,17 +5279,17 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.withType('min')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
 
               elasticsearch.withAlias('Max')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5298,13 +5298,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5314,10 +5314,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('B')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5325,7 +5325,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5334,13 +5334,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5351,10 +5351,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.settings.withPercents(['25', '50', '75', '95', '99'])
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.withType('percentiles')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('C')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5362,7 +5362,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('AVG. 100 vms {{term node.keyword}}')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5379,13 +5379,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5395,17 +5395,17 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('D')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
 
               elasticsearch.withAlias('Memory(GB) [384GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5414,13 +5414,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5430,17 +5430,17 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('F')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
 
               elasticsearch.withAlias('Memory Worker-0 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5449,13 +5449,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5465,10 +5465,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5476,7 +5476,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('Memory Worker-1 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5485,13 +5485,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5501,10 +5501,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5513,7 +5513,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('Memory Worker-2 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5522,13 +5522,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5538,10 +5538,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('H')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5550,7 +5550,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU [240 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5559,13 +5559,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5575,10 +5575,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5586,7 +5586,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU worker-0 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5595,13 +5595,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5611,10 +5611,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('J')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5622,7 +5622,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU worker-1 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5631,13 +5631,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5647,17 +5647,17 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('K')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
 
               elasticsearch.withAlias('%CPU worker-2 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5666,13 +5666,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5682,10 +5682,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('L')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5693,7 +5693,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('VMs #')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5702,13 +5702,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5716,10 +5716,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.UniqueCount.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.UniqueCount.withType('count')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('M')
               + elasticsearch.withTimeField('timestamp')
 
@@ -5734,10 +5734,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
             ]),
-            
+
             ////////////////////////
-            
-            
+
+
             g.panel.stateTimeline.new('120 Windows Server 2019 VMs virtio (Sec)')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-windows-results')
             + g.panel.stateTimeline.withDescription('Time till VM Login - Lower is better')
@@ -5749,12 +5749,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + stateTimeline.fieldConfig.defaults.withDecimals(1)
             + stateTimeline.fieldConfig.defaults.withMappings([
               stateTimeline.valueMapping.ValueMap.withOptions(
-                {	
-                  "0": {	
-                  "color": "transparent",	
-                  "index": 0,	
-                  "text": "."	
-                  }     	
+                {
+                  "0": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "."
+                  }
                 }
               )
               + stateTimeline.valueMapping.ValueMap.withType('value')
@@ -5806,7 +5806,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('Min')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5815,13 +5815,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5831,7 +5831,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Min.withType('min')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -5841,7 +5841,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               ////
 
               elasticsearch.withAlias('Max')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5850,13 +5850,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5866,7 +5866,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -5877,7 +5877,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5886,15 +5886,15 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
-              
+
               + elasticsearch.withHide(false)
 
               + elasticsearch.withMetrics([
@@ -5903,7 +5903,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.settings.withPercents(['25', '50', '75', '95', '99'])
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Percentiles.withType('percentiles')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -5914,7 +5914,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('AVG. 40 vms {{term node.keyword}}')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5931,13 +5931,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5947,7 +5947,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -5957,7 +5957,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               ////
 
               elasticsearch.withAlias('Memory(GB) [384GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -5966,13 +5966,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -5982,7 +5982,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -5992,7 +5992,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               ////
 
               elasticsearch.withAlias('Memory Worker-0 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6001,13 +6001,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6015,12 +6015,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-0_Memory')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
-              + elasticsearch.withQuery('scale:300 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -6028,7 +6028,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('Memory Worker-1 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6037,13 +6037,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6053,7 +6053,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6065,7 +6065,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('Memory Worker-2 (GB) [128GB]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6074,13 +6074,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6090,7 +6090,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6102,7 +6102,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU [240 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6111,13 +6111,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6127,7 +6127,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6138,7 +6138,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU worker-0 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6147,13 +6147,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6163,7 +6163,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6174,7 +6174,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('%CPU worker-1 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6183,13 +6183,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6199,7 +6199,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6209,7 +6209,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               ////
 
               elasticsearch.withAlias('%CPU worker-2 [80 cores]')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6218,13 +6218,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6234,7 +6234,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6245,7 +6245,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               elasticsearch.withAlias('VMs #')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
                 + elasticsearch.bucketAggs.Terms.withId('3')
@@ -6254,13 +6254,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
                 + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-      
-      
+
+
               ])
 
               + elasticsearch.withHide(false)
@@ -6268,7 +6268,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.UniqueCount.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.UniqueCount.withType('count')
-         
+
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
@@ -6290,6 +6290,8 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
           ]),
+
+
 
         g.panel.row.new("Artifacts")
         + g.panel.row.withCollapsed(value=true)
@@ -6333,62 +6335,30 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(146),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',169)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('db_type.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(137),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Database')
+             g.panel.table.fieldOverride.byName.new('db_type.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',137)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Database'),
 
-              ]),
+             g.panel.table.fieldOverride.byName.new('current_worker')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',134)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('current_worker')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(134),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
+             g.panel.table.fieldOverride.byName.new('kind.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',159)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              ]),
+             g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('custom.width',1068)
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(159),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+             g.panel.table.fieldOverride.byName.new('storage_type.keyword')
+             + g.panel.table.fieldOverride.byName.withProperty('displayName','Storage'),
 
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1068),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('storage_type.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Storage')
-
-              ])
 
 
             ])
@@ -6409,7 +6379,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('6')
@@ -6445,7 +6415,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
                 elasticsearch.bucketAggs.DateHistogram.withField('storage_type.keyword')
                 + elasticsearch.bucketAggs.DateHistogram.withId('2')
                 + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
@@ -6461,15 +6431,15 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms')
-      
-      
 
 
-      
+
+
+
               ])
-    
-              
-    
+
+
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('tpm')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
@@ -6524,62 +6494,28 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(169),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',169)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('read_message_size')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(167),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Read Message Size')
+              g.panel.table.fieldOverride.byName.new('read_message_size')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',167)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Read Message Size'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('num_threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',125)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('num_threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(125),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',114)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1068)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(114),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1068),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Gbits')
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Gbits')
 
 
             ])
@@ -6600,7 +6536,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('8')
@@ -6644,9 +6580,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms')
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('norm_byte')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
@@ -6660,7 +6596,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
               + elasticsearch.withTimeField('uperf_ts')
             ]),
 
-          
+
 
 
           //////////////////////
@@ -6697,70 +6633,32 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Artifacts Link')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1521)
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1521)
 
 
             ])
@@ -6781,7 +6679,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('4')
@@ -6807,9 +6705,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms')
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Rate')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
@@ -6832,7 +6730,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 "renameByName": {}
               })
 
-          
+
             ]),
 
           //////////////////
@@ -6869,62 +6767,29 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ])
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
 
             ])
@@ -6947,7 +6812,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('4')
@@ -6997,10 +6862,10 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
               ])
               + elasticsearch.withHide(false)
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Rate')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
@@ -7039,19 +6904,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1600)
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Date')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227)
-              ])
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
+
+              g.panel.table.fieldOverride.byName.new('Date')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
 
             ])
 
@@ -7071,7 +6929,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('4')
@@ -7097,9 +6955,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('job_runtime')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withHide(false)
@@ -7155,13 +7013,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                   "timestamp": "Date"
                 }
               }),
-              
 
 
 
 
 
-          
+
+
             ]),
 
           //////////////////
@@ -7189,19 +7047,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1600)
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Date')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227)
-              ])
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
+
+              g.panel.table.fieldOverride.byName.new('Date')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+
 
             ])
 
@@ -7220,7 +7072,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
 
                 elasticsearch.bucketAggs.Terms.withField('timestamp')
@@ -7238,9 +7090,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('job_runtime')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withHide(false)
@@ -7296,13 +7148,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                   "timestamp": "Date"
                 }
               }),
-              
 
 
 
 
 
-          
+
+
             ]),
 
           //////////////////
@@ -7339,62 +7191,30 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
 
             ])
 
@@ -7415,7 +7235,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
 
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
@@ -7449,9 +7269,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Rate')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
@@ -7459,7 +7279,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
 
               ])
-              + elasticsearch.withQuery("scale:300")
+              + elasticsearch.withQuery("scale:240")
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
@@ -7472,13 +7292,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 "indexByName": {},
                 "renameByName": {}
               })
-              
 
 
 
 
 
-          
+
+
             ]),
 
 
@@ -7516,62 +7336,29 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             ])
             + g.panel.table.fieldConfig.withOverrides([
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('ci_date.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(227),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Date')
-              ]),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('kind.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Kind')
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('run_artifacts_url.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(1000),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Artifacts Link')
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              ]),
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
 
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Average')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Average Rate')
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
 
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Run.keyword')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(140),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Run')
-
-              ]),
-
-              g.panel.table.fieldOverride.matcher.withId('byName')
-              + g.panel.table.fieldOverride.matcher.withOptions('Threads')
-              + g.panel.table.fieldOverride.withProperties([
-                g.panel.table.fieldOverride.properties.withId('custom.width')
-                + g.panel.table.fieldOverride.properties.withValue(100),
-                g.panel.table.fieldOverride.properties.withId('displayName')
-                + g.panel.table.fieldOverride.properties.withValue('Thread')
-
-              ]),
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
             ])
 
@@ -7594,7 +7381,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
-    
+
               + elasticsearch.withBucketAggs([
 
                 elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
@@ -7628,9 +7415,9 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
-      
+
               ])
-    
+
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Rate')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
@@ -7651,13 +7438,13 @@ g.dashboard.new('PerfCI-Regression-Summary')
                 "indexByName": {},
                 "renameByName": {}
               })
-              
 
 
 
 
 
-          
+
+
             ]),
 
           /////////////
@@ -7693,12 +7480,12 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
             + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
             ])
-       
+
 
             + elasticsearch.withMetrics([
               elasticsearch.metrics.Count.withId('1')
               + elasticsearch.metrics.Count.withType('count')
-         
+
             ])
 
             + elasticsearch.withQuery('')
@@ -7709,19 +7496,19 @@ g.dashboard.new('PerfCI-Regression-Summary')
           ]),
 
     ////////////////////////////////////////////
-                  
-  
+
+
 
 
 
 
         ])
 
-          
+
+
 
 
 
 
 
 ])
-
