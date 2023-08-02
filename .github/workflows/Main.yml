@@ -19,7 +19,9 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet || echo "changes=true" >> $GITHUB_ENV
+          git diff --quiet || echo "changes=true" >> $GITHUB_OUTPUT
+          echo ${{ env.changes }}
+
 
       - name: Commit grafana json file
         if: ${{ env.changes }} == 'true'
