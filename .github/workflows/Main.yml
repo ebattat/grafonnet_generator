@@ -12,7 +12,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Update grafana json file
+      - name: Run grafana json container generator
         run: |
           sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
