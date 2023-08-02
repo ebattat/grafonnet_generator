@@ -3,7 +3,7 @@
       {
          "asDropdown": false,
          "icon": "info",
-         "includeVars": false,
+         "includeVars": true,
          "keepTime": false,
          "targetBlank": true,
          "title": "Details",
