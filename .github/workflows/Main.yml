@@ -19,10 +19,10 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet || echo "${{ env.CHANGE }}=true" >> $GITHUB_STATE
+          git diff --quiet || echo "::set-output name=changes::true"
 
       - name: Commit grafana json file
-        if: env.CHANGE == 'true'
+        if: steps.check_changes.outputs.changes == 'true'
         run: |
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
