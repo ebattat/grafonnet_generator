@@ -42,4 +42,5 @@ jobs:
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
+          PERF_GRAFANA_JSON: $GITHUB_WORKSPACE/grafana/output.json
         run: python $GITHUB_WORKSPACE/grafana/update_grafana_dashboard.py

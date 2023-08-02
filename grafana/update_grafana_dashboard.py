@@ -2,9 +2,9 @@ import os
 from grafana_operations import GrafanaOperations
 
 # Access environment variables using os.environ
-grafana_url = os.environ.get("PERF_GRAFANA_URL", '')
-api_key = os.environ.get("PERF_GRAFANA_API_KEY", '')
-json_dashboard_path = os.environ.get("JSON_DASHBOARD_PATH", 'output.json')
+grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
+api_key = os.environ.get('PERF_GRAFANA_API_KEY', '')
+json_dashboard_path = os.environ.get('PERF_GRAFANA_JSON', 'output.json')
 
 grafana_operations = GrafanaOperations(grafana_url=grafana_url,
                                        api_key=api_key,
