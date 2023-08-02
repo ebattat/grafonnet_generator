@@ -1,10 +1,8 @@
 {
    "links": [
       {
-         "asDropdown": true,
+         "asDropdown": false,
          "icon": "info",
-         "includeVars": true,
-         "keepTime": true,
          "targetBlank": true,
          "title": "Details",
          "type": "link",
