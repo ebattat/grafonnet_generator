@@ -19,12 +19,13 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet || echo "::set-output name=changes::true"
+          git diff --quiet || echo "changes::true" >> $GITHUB_OUTPUT
 
 
       - name: Commit grafana json file
         if: steps.check_changes.outputs.changes == 'true'
         run: |
+          echo ${{ steps.check_changes.outputs.changes }}
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name  ${{ secrets.USER_NAME }}
