@@ -1,7 +1,7 @@
 {
    "links": [
       {
-         "asDropdown": false,
+         "asDropdown": true,
          "icon": "info",
          "includeVars": false,
          "keepTime": false,
