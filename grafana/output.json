@@ -3,8 +3,6 @@
       {
          "asDropdown": false,
          "icon": "info",
-         "includeVars": false,
-         "keepTime": false,
          "targetBlank": true,
          "title": "Details",
          "type": "link",
