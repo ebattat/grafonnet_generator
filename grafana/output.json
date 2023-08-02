@@ -966,7 +966,7 @@
           "timeField": "timestamp"
         }
       ],
-      "title": "Product Versions",
+      "title": "Product Versions Test",
       "transformations": [
         {
           "id": "filterByValue",
@@ -9117,6 +9117,6 @@
   "timezone": "",
   "title": "PerfCI-Regression-Summary-Test",
   "uid": "prHLxqqVz",
-  "version": 3,
+  "version": 4,
   "weekStart": ""
 }
