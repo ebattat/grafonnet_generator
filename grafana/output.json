@@ -4,7 +4,7 @@
          "asDropdown": true,
          "icon": "info",
          "includeVars": true,
-         "keepTime": false,
+         "keepTime": true,
          "targetBlank": true,
          "title": "Details",
          "type": "link",
