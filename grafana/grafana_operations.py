@@ -51,7 +51,7 @@ class GrafanaOperations:
         :return:
         """
         with open(self.json_dashboard_path, 'w') as json_file:
-            json.dump(self.dashboard_data , json_file, indent=2)
+            json.dump(self.dashboard_data, json_file, indent=2)
 
     def override_dashboard(self):
         headers = {
