@@ -8416,7 +8416,7 @@
       ]
    },
    "time": {
-      "from": "now-15d",
+      "from": "now-45d",
       "to": "now"
    },
    "timepicker": { },
