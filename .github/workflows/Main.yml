@@ -19,15 +19,10 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          echo git diff --quiet $GITHUB_WORKSPACE/grafana/output.json ||  echo "changes=true" >> $GITHUB_OUTPUT
           git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "::set-output name=changes::true"
-          echo steps.check_changes.outputs.changes
-
-      - name: Debug
-        run: echo steps.check_changes.outputs.changes
 
       - name: Update Grafana dashboard with new json
-        #if: steps.check_changes.outputs.changes == 'true'
+        if: steps.check_changes.outputs.changes == 'true'
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
@@ -35,7 +30,7 @@ jobs:
         run: python $GITHUB_WORKSPACE/grafana/update_grafana_dashboard.py
 
       - name: Commit grafana json file after update version
-        if: ${{steps.check_changes.outputs.changes == 'true'}}
+        if: steps.check_changes.outputs.changes == 'true'
         run: |
           echo ${{ steps.check_changes.outputs.changes }}
           git checkout main
