@@ -9,4 +9,4 @@ RUN dnf update -y && \
 
 ENV PATH="/root/go/bin:${PATH}"
 
-CMD ["/bin/sh", "-c", " rm -rf jsonnetfile*;jb init; jb install github.com/grafana/grafonnet/gen/grafonnet-latest@main; jsonnet -J vendor main.libsonnet > /app/output.json; rm -rf jsonnetfile*; rm -rf vendor"]
+CMD ["/bin/sh", "-c", "rm -rf jsonnetfile*; jb init; jb install github.com/grafana/grafonnet/gen/grafonnet-latest@main; jsonnet -J vendor main.libsonnet > /app/output.json; rm -rf jsonnetfile*; rm -rf vendor"]
