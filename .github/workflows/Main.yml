@@ -21,10 +21,10 @@ jobs:
         run: |
           echo git diff --quiet $GITHUB_WORKSPACE/grafana/output.json ||  echo "changes=true" >> $GITHUB_OUTPUT
           git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "::set-output name=changes::true"
-          echo "changes=${{ steps.check_changes.outputs.changes }}"
+          echo steps.check_changes.outputs.changes
 
       - name: Debug
-        run: echo "changes=${{ steps.check_changes.outputs.changes }}"
+        run: echo steps.check_changes.outputs.changes
 
       - name: Update Grafana dashboard with new json
         #if: steps.check_changes.outputs.changes == 'true'
