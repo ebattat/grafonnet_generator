@@ -13,6 +13,10 @@ class GrafanaOperations:
         self.dashboard_data = {}
 
     def fetch_all_dashboards(self):
+        """
+
+        :return:
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
         }
@@ -30,6 +34,13 @@ class GrafanaOperations:
         except requests.exceptions.RequestException as e:
             print(f"Error fetching dashboards: {e}")
 
+    def increment_dashboard_version(self):
+        """
+        This method increases dashboard version
+        :return:
+        """
+        self.dashboard_data["version"] = self.get_latest_dashboard_version()
+
     def read_dashboard_json(self):
         """
         This method reads dashboard from json into dictionary
@@ -46,20 +57,58 @@ class GrafanaOperations:
         with open(self.json_dashboard_path, 'w') as json_file:
             json.dump(self.dashboard_data, json_file, indent=2)
 
+    def write_dashboard_wo_version(self):
+        """
+        This method write dashboard data into json
+        :return:
+        """
+        del self.dashboard_data["version"]
+        with open(self.json_dashboard_path, 'w') as json_file:
+            json.dump(self.dashboard_data, json_file, indent=2)
+
+    def get_latest_dashboard_version(self):
+        """
+
+        :return:
+        """
+        headers = {
+            "Authorization": f"Bearer {self.api_key}",
+        }
+        try:
+            response = requests.get(f"{self.grafana_url}/api/dashboards/uid/{self.dashboard_data['uid']}", headers=headers)
+            response_json = response.json()
+            return response_json['dashboard']['version']
+
+        except requests.exceptions.RequestException as e:
+            print(f"Error fetching dashboard version: {e}")
+            return None
+
     def override_dashboard(self):
+        """
+
+        :return:
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",
         }
         try:
-            response = requests.post(f"{self.grafana_url}/api/dashboards/db", headers=headers, json={"dashboard": self.dashboard_data})
+            # Append the "overwrite=true" query parameter to force update without version check
+            response = requests.post(
+                f"{self.grafana_url}/api/dashboards/db?overwrite=true",
+                headers=headers,
+                json={"dashboard": self.dashboard_data},
+            )
 
             if response.status_code == 200:
                 print(f"Dashboard '{self.dashboard_data['title']}' overridden successfully.")
             else:
-                print(f"Failed to override dashboard '{self.dashboard_data['title']}'. Status code: {response.status_code}")
+                print(
+                    f"Failed to override dashboard '{self.dashboard_data['title']}'. Status code: {response.status_code}. Message: {response.text}")
 
         except requests.exceptions.RequestException as e:
             print(f"Error overriding dashboard '{self.dashboard_data['title']}': {e}")
+
+
 
 
