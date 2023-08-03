@@ -9110,7 +9110,7 @@
     ]
   },
   "time": {
-    "from": "now-45d",
+    "from": "now-5d",
     "to": "now"
   },
   "timepicker": {},
