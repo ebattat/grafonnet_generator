@@ -19,6 +19,7 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
+          cat $GITHUB_WORKSPACE/grafana/output.json
           cd $GITHUB_WORKSPACE/grafana
           if git diff --quiet output.json; then
             echo "No changes detected."
