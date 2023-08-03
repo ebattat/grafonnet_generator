@@ -19,7 +19,8 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet $GITHUB_WORKSPACE/grafana/output.json ||  echo "changes=true" >> $GITHUB_OUTPUT
+          echo "changes=${{ steps.check_changes.outputs.changes }}"
 
       - name: Debug
         run: echo "changes=${{ steps.check_changes.outputs.changes }}"
