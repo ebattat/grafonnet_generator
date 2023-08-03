@@ -14,7 +14,6 @@ grafana_operations = GrafanaOperations(grafana_url=grafana_url,
 # for debug: grafana_operations.fetch_all_dashboards()
 grafana_operations.read_dashboard_json()
 grafana_operations.increment_dashboard_version()
-grafana_operations.write_dashboard_json()
 grafana_operations.override_dashboard()
 # Need to remove version for diff
 grafana_operations.write_dashboard_wo_version()
