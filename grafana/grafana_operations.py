@@ -30,13 +30,6 @@ class GrafanaOperations:
         except requests.exceptions.RequestException as e:
             print(f"Error fetching dashboards: {e}")
 
-    def increment_dashboard_version(self):
-        """
-        This method increases dashboard version
-        :return:
-        """
-        self.dashboard_data["version"] = int(self.dashboard_data["version"]) + 1
-
     def read_dashboard_json(self):
         """
         This method reads dashboard from json into dictionary

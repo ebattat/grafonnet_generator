@@ -10,12 +10,9 @@ grafana_operations = GrafanaOperations(grafana_url=grafana_url,
                                        api_key=api_key,
                                        json_dashboard_path=json_dashboard_path)
 
-
 # Update generate grafana dashboard
 # for debug: grafana_operations.fetch_all_dashboards()
 grafana_operations.read_dashboard_json()
-grafana_operations.increment_dashboard_version()
-grafana_operations.write_dashboard_json()
 grafana_operations.override_dashboard()
 
 # Error: 412 - need to find last working index
