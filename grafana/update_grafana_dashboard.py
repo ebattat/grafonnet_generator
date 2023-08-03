@@ -15,8 +15,7 @@ grafana_operations = GrafanaOperations(grafana_url=grafana_url,
 grafana_operations.read_dashboard_json()
 grafana_operations.increment_dashboard_version()
 grafana_operations.override_dashboard()
-# Need to remove version for diff
-grafana_operations.write_dashboard_wo_version()
+
 
 # Error: 412 - need to find last working index
 # The 412 status code is used when a newer dashboard already exists (newer, its version is greater than the version that was sent). The same status code is also used if another dashboard exists with the same title.
