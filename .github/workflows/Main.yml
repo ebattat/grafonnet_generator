@@ -20,11 +20,15 @@ jobs:
         id: check_changes
         run: |
           cd $GITHUB_WORKSPACE/grafana
-          git diff --quiet output.json || echo "::set-output name=changes::true"
+          if git diff --quiet output.json; then
+            echo "No changes detected."
+          else
+            echo "::set-output name=changes::true"
+          fi
 
       - name: Debug
         run: |
-        echo "Changes detected: ${{ steps.check_changes.outputs.changes }}"
+          echo "Changes detected: ${{ steps.check_changes.outputs.changes }}"
 
 
       - name: Update Grafana dashboard with new json
