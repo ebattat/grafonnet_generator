@@ -57,14 +57,7 @@ class GrafanaOperations:
         with open(self.json_dashboard_path, 'w') as json_file:
             json.dump(self.dashboard_data, json_file, indent=2)
 
-    def write_dashboard_wo_version(self):
-        """
-        This method write dashboard data into json
-        :return:
-        """
-        del self.dashboard_data["version"]
-        with open(self.json_dashboard_path, 'w') as json_file:
-            json.dump(self.dashboard_data, json_file, indent=2)
+
 
     def get_latest_dashboard_version(self):
         """
