@@ -14,7 +14,7 @@ jobs:
 
       - name: Run grafana json container generator
         run: |
-          echo sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
+          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
       - name: Check for changes in grafana json file
         id: check_changes
@@ -22,7 +22,7 @@ jobs:
           git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "changes=true" >>$GITHUB_OUTPUT
 
       - name: Update Grafana dashboard with new json
-        #if: steps.check_changes.outputs.changes == 'true'
+        if: steps.check_changes.outputs.changes == 'true'
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
