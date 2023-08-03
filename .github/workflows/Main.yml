@@ -19,10 +19,15 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
-          git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "::set-output name=changes::true"
+          echo git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "::set-output name=changes::true"
+          if git diff --exit-code; then
+            echo "::set-env name=changes_exist::true"
+          else
+            echo "::set-env name=changes_exist::false"
+          fi
 
       - name: Update Grafana dashboard with new json
-        if: steps.check_changes.outputs.changes == 'true'
+        if: env.changes_exist == 'true'
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
