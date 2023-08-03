@@ -20,7 +20,9 @@ jobs:
         id: check_changes
         run: |
           git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "changes=true" >> $GITHUB_OUTPUT
-          
+
+      - name: Debug
+        run: echo "changes=${{ steps.check_changes.outputs.changes }}"
 
       - name: Update Grafana dashboard with new json
         if: ${{steps.check_changes.outputs.changes == 'true' }}
