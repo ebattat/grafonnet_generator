@@ -19,6 +19,7 @@ jobs:
       - name: Check for changes in grafana json file
         id: check_changes
         run: |
+          # backup output.json
           cp $GITHUB_WORKSPACE/grafana/perf/output.json $GITHUB_WORKSPACE/grafana/perf/output_original.json
           git diff --quiet $GITHUB_WORKSPACE/grafana/perf/output.json || echo "changes=true" >>$GITHUB_OUTPUT
 
@@ -30,7 +31,8 @@ jobs:
           PERF_GRAFANA_JSON: grafana/perf/output.json
         run: |
               python $GITHUB_WORKSPACE/grafana/update_grafana_dashboard.py
-              cp $GITHUB_WORKSPACE/grafana/perf/output_original.json $GITHUB_WORKSPACE/perf/grafana/output.json
+              # revert output.json after python version change
+              cp $GITHUB_WORKSPACE/grafana/perf/output_original.json $GITHUB_WORKSPACE/grafana/perf/output.json
 
       - name: Commit grafana json file after update version
         if: steps.check_changes.outputs.changes == 'true'
