@@ -21,6 +21,12 @@ jobs:
           # Store the result of git diff in the GIT_DIFF environment variable
           GIT_DIFF=$(git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "true")
           echo "GIT_DIFF=$GIT_DIFF" >> $GITHUB_ENV
+      
+
+      - name: debug ENV
+        run: |
+          echo "GIT_DIFF = $GIT_DIFF"
+          echo ${{env.GIT_DIFF}} 
 
       - name: Update Grafana dashboard with new json
         if: env.GIT_DIFF == 'true'
