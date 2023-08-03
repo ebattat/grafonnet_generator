@@ -16,13 +16,14 @@ jobs:
         run: |
           sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafana:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
-      - name: Check for changes in grafana json file
-        id: check_changes
+      - name: Set GIT_DIFF environment variable
         run: |
-          git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "changes=true" >>$GITHUB_OUTPUT
+          # Store the result of git diff in the GIT_DIFF environment variable
+          GIT_DIFF=$(git diff --quiet $GITHUB_WORKSPACE/grafana/output.json || echo "true")
+          echo "GIT_DIFF=$GIT_DIFF" >> $GITHUB_ENV
 
       - name: Update Grafana dashboard with new json
-        if: steps.check_changes.outputs.changes == 'true'
+        if: env.GIT_DIFF == 'true'
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
@@ -30,7 +31,7 @@ jobs:
         run: python $GITHUB_WORKSPACE/grafana/update_grafana_dashboard.py
 
       - name: Commit grafana json file after update version
-        if: steps.check_changes.outputs.changes == 'true'
+        if: env.GIT_DIFF == 'true'
         run: |
           echo ${{ steps.check_changes.outputs.changes }}
           git checkout main
