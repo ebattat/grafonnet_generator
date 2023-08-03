@@ -13,6 +13,10 @@ class GrafanaOperations:
         self.dashboard_data = {}
 
     def fetch_all_dashboards(self):
+        """
+
+        :return:
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
         }
@@ -53,7 +57,13 @@ class GrafanaOperations:
         with open(self.json_dashboard_path, 'w') as json_file:
             json.dump(self.dashboard_data, json_file, indent=2)
 
+
+
     def get_latest_dashboard_version(self):
+        """
+
+        :return:
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
         }
@@ -67,6 +77,10 @@ class GrafanaOperations:
             return None
 
     def override_dashboard(self):
+        """
+
+        :return:
+        """
         headers = {
             "Authorization": f"Bearer {self.api_key}",
             "Content-Type": "application/json",

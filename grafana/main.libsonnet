@@ -11,7 +11,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
 + g.dashboard.withTimepicker({},)
 + g.dashboard.withTimezone("")
 + g.dashboard.withUid('rrBmyRe4z')
-+ g.dashboard.withVersion(0)
 + g.dashboard.withWeekStart("")
 + g.dashboard.withLiveNow(false)
 
