@@ -57,8 +57,6 @@ class GrafanaOperations:
         with open(self.json_dashboard_path, 'w') as json_file:
             json.dump(self.dashboard_data, json_file, indent=2)
 
-
-
     def get_latest_dashboard_version(self):
         """
 
@@ -101,7 +99,3 @@ class GrafanaOperations:
 
         except requests.exceptions.RequestException as e:
             print(f"Error overriding dashboard '{self.dashboard_data['title']}': {e}")
-
-
-
-
