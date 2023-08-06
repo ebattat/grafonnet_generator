@@ -712,7 +712,11 @@ g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
                 "Product Versions": {
                   "index": 107,
                   "text": "Product Versions"
-                }
+                },
+                "4134": {
+                  "index": 122,
+                  "text": "4.13.4"
+                },
               }
         )
         + stateTimeline.valueMapping.RegexMap.withType('value')
