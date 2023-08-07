@@ -8513,7 +8513,7 @@
       ]
    },
    "time": {
-      "from": "now-45d",
+      "from": "now-30d",
       "to": "now"
    },
    "timepicker": { },
