@@ -101,11 +101,11 @@ class GrafanaOperations:
             if response.status_code == 200:
                 print(f"Dashboard '{self.dashboard_data['title']}' overridden successfully.")
             else:
-                print(
+                raise Exception(
                     f"Failed to override dashboard '{self.dashboard_data['title']}'. Status code: {response.status_code}. Message: {response.text}")
 
         except requests.exceptions.RequestException as e:
-            print(f"Error overriding dashboard '{self.dashboard_data['title']}': {e}")
+            raise Exception(f"Error overriding dashboard '{self.dashboard_data['title']}': {e}")
 
 
 grafana_operations = GrafanaOperations(grafana_url=grafana_url,
