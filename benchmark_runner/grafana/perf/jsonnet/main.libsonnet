@@ -1,4 +1,3 @@
-import 'github.com/grafana/grafonnet/gen/grafonnet-latest/main.libsonnet'
 
 local g = import 'g.libsonnet';
 local grafonnet = import 'github.com/grafana/grafonnet/gen/grafonnet-latest/main.libsonnet';
