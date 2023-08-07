@@ -1,3 +1,4 @@
+
 local g = import 'g.libsonnet';
 local grafonnet = import 'github.com/grafana/grafonnet/gen/grafonnet-latest/main.libsonnet';
 local elasticsearch = grafonnet.query.elasticsearch;
@@ -231,6 +232,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
 
       ])
 
+
+
       + stateTimeline.fieldConfig.defaults.thresholds.withMode('absolute')
       + stateTimeline.fieldConfig.defaults.thresholds.withSteps([
         g.panel.alertGroups.thresholdStep.withColor('green')
@@ -238,7 +241,10 @@ g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
 
       ])
 
-      + stateTimeline.fieldConfig.withOverrides([])
+      + stateTimeline.fieldConfig.withOverrides([
+        stateTimeline.fieldOverride.byName.new('Ci Status')
+              + g.panel.table.fieldOverride.byName.withProperty('color', {"mode": "continuous-RdYlGr"})
+      ])
 
       + stateTimeline.gridPos.withH(6)
       + stateTimeline.gridPos.withW(24)
