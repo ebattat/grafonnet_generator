@@ -14,7 +14,7 @@ jobs:
 
       - name: Generate grafana dashboard.json using grafonnet container
         run: |
-          sudo docker run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/benchmark_runner/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
+          sudo podman run --rm --name run_grafonnet -v "$GITHUB_WORKSPACE"/benchmark_runner/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
       - name: Check for changes in dashboard.json
         id: check_changes
