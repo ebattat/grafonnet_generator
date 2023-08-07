@@ -18,30 +18,34 @@ jobs:
 
       - name: Check for changes in grafana json file
         id: check_changes
+        env:
+          PERF_GRAFANA_JSON: ${{ secrets.PERF_GRAFANA_JSON }}
         run: |
           # backup dashboard.json
-          cp $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard_backup.json
-          git diff --quiet $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json || echo "changes=true" >> $GITHUB_OUTPUT
+          cp $PERF_GRAFANA_JSON $PERF_GRAFANA_JSON_Backup
+          git diff --quiet $PERF_GRAFANA_JSON || echo "changes=true" >> $GITHUB_OUTPUT
 
       - name: Update Grafana dashboard with new json
         if: steps.check_changes.outputs.changes == 'true'
         env:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
-          PERF_GRAFANA_JSON: benchmark_runner/grafana/perf/dashboard.json
+          PERF_GRAFANA_JSON: ${{ secrets.PERF_GRAFANA_JSON }}
         run: |
               python $GITHUB_WORKSPACE/benchmark_runner/grafana/update_grafana_dashboard.py
               # revert dashboard.json after python version change
-              cp $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard_backup.json $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json
+              cp $PERF_GRAFANA_JSON_Backup $PERF_GRAFANA_JSON
 
       - name: Commit grafana json file after update version
         if: steps.check_changes.outputs.changes == 'true'
+        env:
+          PERF_GRAFANA_JSON: ${{ secrets.PERF_GRAFANA_JSON }}
         run: |
           echo ${{ steps.check_changes.outputs.changes }}
           git checkout main
           git config --global user.email ${{ secrets.EMAIL }}
           git config --global user.name  ${{ secrets.USER_NAME }}
-          git add $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json
+          git add $PERF_GRAFANA_JSON
           git commit -m "Update grafana json file"
 
           # Pull the latest changes from the remote main branch
