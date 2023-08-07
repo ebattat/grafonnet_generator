@@ -1,4 +1,3 @@
-
 local g = import 'g.libsonnet';
 local grafonnet = import 'github.com/grafana/grafonnet/gen/grafonnet-latest/main.libsonnet';
 local elasticsearch = grafonnet.query.elasticsearch;
@@ -7,7 +6,7 @@ local var = g.dashboard.variable;
 
 
 g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
-+ g.dashboard.time.withFrom('now-30d')
++ g.dashboard.time.withFrom('now-45d')
 + g.dashboard.time.withTo('now')
 + g.dashboard.withTimepicker({},)
 + g.dashboard.withTimezone("")
@@ -231,8 +230,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
 
 
       ])
-
-
 
       + stateTimeline.fieldConfig.defaults.thresholds.withMode('absolute')
       + stateTimeline.fieldConfig.defaults.thresholds.withSteps([
