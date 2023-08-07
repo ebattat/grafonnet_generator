@@ -6,7 +6,7 @@ local var = g.dashboard.variable;
 
 
 g.dashboard.new('PerfCI-Regression-Summary-Grafonnet')
-+ g.dashboard.time.withFrom('now-45d')
++ g.dashboard.time.withFrom('now-30d')
 + g.dashboard.time.withTo('now')
 + g.dashboard.withTimepicker({},)
 + g.dashboard.withTimezone("")
