@@ -710,7 +710,22 @@
                   ]
                }
             },
-            "overrides": [ ]
+            "overrides": [
+               {
+                  "matcher": {
+                     "id": "byName",
+                     "options": "Ci Status"
+                  },
+                  "properties": [
+                     {
+                        "id": "color",
+                        "value": {
+                           "mode": "continuous-RdYlGr"
+                        }
+                     }
+                  ]
+               }
+            ]
          },
          "gridPos": {
             "h": 6,
@@ -8513,7 +8528,7 @@
       ]
    },
    "time": {
-      "from": "now-30d",
+      "from": "now-45d",
       "to": "now"
    },
    "timepicker": { },
