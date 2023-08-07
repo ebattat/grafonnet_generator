@@ -19,7 +19,7 @@ jobs:
       - name: Check for changes in dashboard.json
         id: check_changes
         run: |
-          git diff --quiet $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json || echo "changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet $GITHUB_WORKSPACE/benchmark_runner/grafana/perf/dashboard.json || echo "changes=true" >> "$GITHUB_OUTPUT"
 
       - name: Update the Grafana dashboard if any changes are detected in dashboard.json
         if: steps.check_changes.outputs.changes == 'true'
