@@ -1,3 +1,4 @@
 
 # grafonnet_generator
-convert grafonnet code into Grafana json
+
+## Convert Grafonnet code into Grafana JSON using Terraform and update the Grafana dashboard with the new JSON
