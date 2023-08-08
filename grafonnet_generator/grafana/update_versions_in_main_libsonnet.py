@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 from elasticsearch_operations import ElasticSearchOperations
 
+main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/grafana/perf/jsonnet/main.libsonnet')
 
 class UpdateGrafanaLastValueMappings:
     """
