@@ -4,7 +4,7 @@ import os
 from datetime import datetime, timedelta
 
 
-from grafonnet_generator.grafana.elasticsearch_operations import ElasticSearchOperations
+from elasticsearch_operations import ElasticSearchOperations
 
 
 class UpdateGrafanaLastValueMappings:
