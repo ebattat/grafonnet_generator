@@ -3,7 +3,6 @@ import os
 import requests
 import json
 
-from update_versions_in_main_libsonnet import UpdateGrafanaLastValueMappings
 
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
