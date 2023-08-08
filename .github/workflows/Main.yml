@@ -12,6 +12,17 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
+      - name: Update product versions in main.libsonnet
+        env:
+          PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/grafana/perf/jsonnet/main.libsonnet
+          ELASTICSEARCH: ${{ secrets.ELASTICSEARCH }}
+          ELASTICSEARCH_PORT: ${{ secrets.ELASTICSEARCH_PORT }}
+          ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
+          ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
+        run: |
+          pip install elasticsearch==7.17.6
+          python $GITHUB_WORKSPACE/grafonnet_generator/grafana/update_versions_in_main_libsonnet.py
+
       - name: Generate grafana dashboard.json using grafonnet container
         run: |
           sudo podman run --rm --name run_grafonnet -v "$GITHUB_WORKSPACE"/grafonnet_generator/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
