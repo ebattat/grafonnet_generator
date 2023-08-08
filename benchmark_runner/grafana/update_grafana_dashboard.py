@@ -3,6 +3,7 @@ import os
 import requests
 import json
 
+from benchmark_runner.grafana.update_grafana_last_value_mappings import UpdateGrafanaLastValueMappings
 
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
@@ -111,6 +112,12 @@ class GrafanaOperations:
 grafana_operations = GrafanaOperations(grafana_url=grafana_url,
                                        api_key=api_key,
                                        json_dashboard_path=json_dashboard_path)
+
+# Update perf main.libsonnet with last versions
+update_grafana_mappings_value = UpdateGrafanaLastValueMappings(main_libsonnet_path='perf/jsonnet/main.libsonnet')
+last_versions = update_grafana_mappings_value.get_last_elasticsearch_versions()
+update_grafana_mappings_value.update_value_mappings_last_versions(last_versions=last_versions)
+update_grafana_mappings_value.update_main_libsonnet()
 
 # Update generate grafana dashboard
 # for debug: grafana_operations.fetch_all_dashboards()
