@@ -32,7 +32,8 @@ jobs:
           ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
           ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
         run: |
-              pip install elasticsearch==7.17.6
+              python -m pip install --upgrade pip
+              pip install benchmark-runner
               # backup dashboard.json before adding dashboard version by python code
               cp $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard.json $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard_backup.json
               python $GITHUB_WORKSPACE/grafonnet_generator/grafana/update_grafana_dashboard.py
