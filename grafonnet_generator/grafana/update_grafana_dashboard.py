@@ -3,7 +3,7 @@ import os
 import requests
 import json
 
-from benchmark_runner.grafana.update_grafana_last_value_mappings import UpdateGrafanaLastValueMappings
+from grafonnet_generator.grafana.update_grafana_last_value_mappings import UpdateGrafanaLastValueMappings
 
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
