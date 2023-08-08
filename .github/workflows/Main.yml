@@ -27,6 +27,7 @@ jobs:
           PERF_GRAFANA_URL: ${{ secrets.PERF_GRAFANA_URL }}
           PERF_GRAFANA_API_KEY: ${{ secrets.PERF_GRAFANA_API_KEY }}
           PERF_GRAFANA_JSON: grafonnet_generator/grafana/perf/dashboard.json
+          PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/grafana/perf/jsonnet/main.libsonnet
           ELASTICSEARCH: ${{ secrets.ELASTICSEARCH }}
           ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
           ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
