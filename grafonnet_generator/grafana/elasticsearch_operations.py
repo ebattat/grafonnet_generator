@@ -9,8 +9,6 @@ from elasticsearch.connection import create_ssl_context
 from datetime import datetime
 
 
-
-
 class ElasticSearchOperations:
     """
     This class contains elasticsearch operations
