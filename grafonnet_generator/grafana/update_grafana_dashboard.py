@@ -3,13 +3,12 @@ import os
 import requests
 import json
 
-from update_grafana_last_value_mappings import UpdateGrafanaLastValueMappings
+from update_versions_in_main_libsonnet import UpdateGrafanaLastValueMappings
 
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
 api_key = os.environ.get('PERF_GRAFANA_API_KEY', '')
 json_dashboard_path = os.environ.get('PERF_GRAFANA_JSON', 'grafonnet_generator/grafana/perf/dashboard.json')
-main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/grafana/perf/jsonnet/main.libsonnet')
 
 
 class GrafanaOperations:
@@ -113,12 +112,6 @@ class GrafanaOperations:
 grafana_operations = GrafanaOperations(grafana_url=grafana_url,
                                        api_key=api_key,
                                        json_dashboard_path=json_dashboard_path)
-
-# Update perf main.libsonnet with last versions
-update_grafana_mappings_value = UpdateGrafanaLastValueMappings(main_libsonnet_path=main_libsonnet_path)
-last_versions = update_grafana_mappings_value.get_last_elasticsearch_versions()
-update_grafana_mappings_value.update_value_mappings_last_versions(last_versions=last_versions)
-update_grafana_mappings_value.update_main_libsonnet()
 
 # Update generate grafana dashboard
 # for debug: grafana_operations.fetch_all_dashboards()
