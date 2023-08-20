@@ -2,7 +2,8 @@
 import os
 import requests
 import json
-
+import logging
+logging.basicConfig(level=logging.INFO)
 
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
@@ -19,6 +20,7 @@ class GrafanaOperations:
         self.api_key = api_key
         self.json_dashboard_path = json_dashboard_path
         self.dashboard_data = {}
+        self.logger = logging.getLogger(__name__)
 
     def fetch_all_dashboards(self):
         """
@@ -99,7 +101,7 @@ class GrafanaOperations:
             )
 
             if response.status_code == 200:
-                print(f"Dashboard '{self.dashboard_data['title']}' overridden successfully.")
+                self.logger.info(f"Dashboard '{self.dashboard_data['title']}' overridden successfully.")
             else:
                 raise Exception(
                     f"Failed to override dashboard '{self.dashboard_data['title']}'. Status code: {response.status_code}. Message: {response.text}")
