@@ -707,6 +707,10 @@
                         "Product Versions": {
                            "index": 107,
                            "text": "Product Versions"
+                        },
+                        "Unable to connect to the server: net/http: TLS handshake timeout": {
+                           "index": 146,
+                           "text": "Unable to connect to the server: net/http: TLS handshake timeout"
                         }
                      },
                      "type": "value"
