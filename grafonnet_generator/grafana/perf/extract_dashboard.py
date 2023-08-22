@@ -1,10 +1,19 @@
 import re
-import argparse
+import sys
+import json
 
-parser = argparse.ArgumentParser(description="Extract text between <<EOT and EOT in input file.")
-parser.add_argument("input_file", help="Path to the input file")
-parser.add_argument("output_file", help="Path to the output file")
-args = parser.parse_args()
+input_text = sys.stdin.read()
 
-with open(args.input_file, 'r') as file, open(args.output_file, 'w') as output_file:
-    output_file.write(re.search(r'<<EOT(.*?)EOT', file.read(), re.DOTALL).group(1).strip())
+match = re.search(r'dashboard = <<EOT(.*?)\nEOT\n', input_text, re.DOTALL)
+if match:
+    extracted_content = match.group(1).strip()
+    try:
+        parsed_dict = json.loads(extracted_content)
+        if not isinstance(parsed_dict, dict):
+            raise ValueError("Extracted content is not a valid JSON dictionary.")
+        with open(sys.argv[1], 'w') as o:
+            o.write(extracted_content)
+    except json.JSONDecodeError:
+        raise ValueError("Extracted content is not valid JSON.")
+else:
+    raise ValueError('Dashboard JSON content not found')
