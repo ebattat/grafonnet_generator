@@ -15,4 +15,4 @@ RUN dnf update -y && \
 
 ENV PATH="/root/go/bin:${PATH}"
 
-CMD ["/bin/sh", "-c", "terraform init; make > dashboard.txt;  python3 extract_dashboard.py dashboard.txt dashboard.json; terraform destroy -auto-approve > /dev/null 2>&1"]
+CMD ["/bin/sh", "-c", "terraform init; make; terraform destroy -auto-approve > /dev/null 2>&1"]
