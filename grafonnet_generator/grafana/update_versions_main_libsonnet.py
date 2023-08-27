@@ -13,6 +13,9 @@ class UpdateGrafanaLastValueMappings:
     """
     This class updates grafana dashboard with last value mappings from ElasticSearch
     """
+    # Prevent error messages from being saved instead of versions in case of a connection issue
+    MAX_VERSION_LEN = 20
+
     def __init__(self, main_libsonnet_path: str):
         # Stamp start/ end value mapping for extract value mapping
         self.start_value_mapping = "//START_VALUE_MAPPING_227"
@@ -42,7 +45,7 @@ class UpdateGrafanaLastValueMappings:
         for id in ids:
             data = self.elasticsearch.get_elasticsearch_index_by_id(index='ci-status', id=id)
             for version, value in data['_source'].items():
-                if version in display_versions and value not in new_versions.values():
+                if version in display_versions and value not in new_versions.values() and len(value) < self.MAX_VERSION_LEN:
                     new_versions[value.replace(".", "").replace("-", "")] = value
 
         return new_versions
