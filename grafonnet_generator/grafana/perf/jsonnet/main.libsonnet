@@ -131,7 +131,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
     + g.panel.text.options.withContent('\n<p style=\"background-color:#000099;text-align: center;\" > > 100% new peak</p>\n<p style=\"background-color:#006600;text-align: center;color:black;\" > 90% - 100% of peak</p>\n<p style=\"background-color:#9fdf9f;text-align: center;color:black;\" > 80% -  90% of peak</p>\n<p style=\"background-color:#cc6600;text-align: center;color:black;\" > 50% -  80% of peak</p>\n<p style=\"background-color:#992600;text-align: center;\" > 0%  -  50% of peak</p>\n\n\n           ')
       + g.panel.text.options.withMode("html")
 
-    + g.panel.text.withPluginVersion('8.4.0-pre')
+    + g.panel.text.withPluginVersion()
 
     + g.panel.text.withTargets([
 
@@ -174,7 +174,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
       + g.panel.text.options.withContent('![Cloud Governance](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n')
       + g.panel.text.options.withMode("markdown")
 
-      + g.panel.text.withPluginVersion('8.4.0-pre')
+      + g.panel.text.withPluginVersion()
 
 
       + g.panel.text.withTargets([
@@ -268,7 +268,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
       + stateTimeline.options.withShowValue("always")
       + stateTimeline.options.tooltip.withMode("single")
 
-      + stateTimeline.withPluginVersion('8.4.0-pre')
+      + stateTimeline.withPluginVersion()
 
       + g.panel.stateTimeline.withTargets([
 
@@ -500,7 +500,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + stateTimeline.options.withShowValue('always')
             + stateTimeline.options.tooltip.withMode('single')
 
-            + stateTimeline.withPluginVersion('8.4.0-pre')
+            + stateTimeline.withPluginVersion()
 
 
             + g.panel.stateTimeline.withTargets([
@@ -5911,7 +5911,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.footer.TableFooterOptions.withShow(false)
             + g.panel.table.options.withShowHeader(true)
             + g.panel.table.options.withSortBy([])
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6068,7 +6068,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.footer.TableFooterOptions.withShow(false)
             + g.panel.table.options.withShowHeader(true)
             + g.panel.table.options.withSortBy([])
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6211,7 +6211,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.footer.TableFooterOptions.withShow(false)
             + g.panel.table.options.withShowHeader(true)
             + g.panel.table.options.withSortBy([])
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6344,7 +6344,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.sortBy.withDesc(true)
             + g.panel.table.options.sortBy.withDesc('ci_date.keyword')
 
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6461,7 +6461,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.footer.TableFooterOptions.withShow(false)
             + g.panel.table.options.withShowHeader(true)
 
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6604,7 +6604,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.footer.TableFooterOptions.withShow(false)
             + g.panel.table.options.withShowHeader(true)
 
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6767,7 +6767,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.sortBy.withDesc(true)
             + g.panel.table.options.sortBy.withDesc('ci_date.keyword')
 
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -6913,7 +6913,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
             + g.panel.table.options.sortBy.withDesc(true)
             + g.panel.table.options.sortBy.withDesc('ci_date.keyword')
 
-            + g.panel.table.withPluginVersion('8.4.0-pre')
+            + g.panel.table.withPluginVersion()
 
             + g.panel.stateTimeline.withTargets([
               elasticsearch.withAlias('')
@@ -7005,7 +7005,7 @@ g.dashboard.new('PerfCI-Regression-Summary')
           + g.panel.text.options.withContent('![Cloud Governance](https://github.com/redhat-performance/benchmark-runner/blob/main/media/benchmark_runner.png?raw=true \"Tooltip Text\")\n')
           + g.panel.text.options.withMode("markdown")
 
-          + g.panel.text.withPluginVersion('8.4.0-pre')
+          + g.panel.text.withPluginVersion()
 
           + g.panel.text.withTargets([
             elasticsearch.withAlias('')
