@@ -39,7 +39,7 @@
             "content": "\n<p style=\"background-color:#000099;text-align: center;\" > > 100% new peak</p>\n<p style=\"background-color:#006600;text-align: center;color:black;\" > 90% - 100% of peak</p>\n<p style=\"background-color:#9fdf9f;text-align: center;color:black;\" > 80% -  90% of peak</p>\n<p style=\"background-color:#cc6600;text-align: center;color:black;\" > 50% -  80% of peak</p>\n<p style=\"background-color:#992600;text-align: center;\" > 0%  -  50% of peak</p>\n\n\n           ",
             "mode": "html"
          },
-         "pluginVersion": "8.4.0-pre",
+         "pluginVersion": "v10.0.0",
          "targets": [
             {
                "alias": "",
@@ -88,7 +88,7 @@
             "content": "![Cloud Governance](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n",
             "mode": "markdown"
          },
-         "pluginVersion": "8.4.0-pre",
+         "pluginVersion": "v10.0.0",
          "targets": [
             {
                "alias": "",
@@ -779,7 +779,7 @@
                "mode": "single"
             }
          },
-         "pluginVersion": "8.4.0-pre",
+         "pluginVersion": "v10.0.0",
          "targets": [
             {
                "alias": "Openshift",
@@ -1048,7 +1048,7 @@
                      "mode": "single"
                   }
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "{{term db_type.keyword}}  : {{term current_worker}} threads : {{term kind.keyword}}:  {{term storage_type.keyword}}",
@@ -1208,6 +1208,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "msg size: {{term read_message_size}} :{{term num_threads}}th: {{term kind.keyword}}",
@@ -1409,6 +1410,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "msg size: {{term read_message_size}} :{{term num_threads}}th: {{term kind.keyword}}",
@@ -1562,6 +1564,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "{{term Run.keyword}} : {{term Threads}}th : 1 {{term kind.keyword}}",
@@ -1926,6 +1929,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "{{term Run.keyword}} : {{term Threads}}th : 1 {{term kind.keyword}}",
@@ -2302,6 +2306,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "Max {{term test_description.runtime.keyword}}",
@@ -2535,6 +2540,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "Max {{term test_description.runtime.keyword}}",
@@ -2735,6 +2741,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "First start (sec) {{term test_description.runtime.keyword}}",
@@ -3035,6 +3042,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "read.iops: {{term test_description.runtime.keyword}}",
@@ -3540,6 +3548,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "create: 4096: {{term test_description.runtime.keyword}}",
@@ -4019,6 +4028,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "latency: {{term test_description.msgsize}}: {{term test_description.runtime.keyword}}",
@@ -4245,6 +4255,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "rate: {{term test_description.msgsize}}: {{term test_description.runtime.keyword}}",
@@ -4484,6 +4495,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "pod: max",
@@ -4884,6 +4896,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "pod: create: filesize 4096",
@@ -5279,6 +5292,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "runc read",
@@ -5404,6 +5418,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "runc rate",
@@ -5564,6 +5579,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "Min",
@@ -6151,6 +6167,7 @@
                      "mode": "single"
                   }
                },
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "Min",
@@ -6824,7 +6841,7 @@
                   "showHeader": true,
                   "sortBy": [ ]
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -7069,7 +7086,7 @@
                   "showHeader": true,
                   "sortBy": [ ]
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -7315,7 +7332,7 @@
                   "showHeader": true,
                   "sortBy": [ ]
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -7536,7 +7553,7 @@
                   },
                   "showHeader": true
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -7698,7 +7715,7 @@
                   },
                   "showHeader": true
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -7872,7 +7889,7 @@
                   },
                   "showHeader": true
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -8116,7 +8133,7 @@
                   },
                   "showHeader": true
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -8348,7 +8365,7 @@
                   },
                   "showHeader": true
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
@@ -8445,7 +8462,7 @@
                   "content": "![Cloud Governance](https://github.com/redhat-performance/benchmark-runner/blob/main/media/benchmark_runner.png?raw=true \"Tooltip Text\")\n",
                   "mode": "markdown"
                },
-               "pluginVersion": "8.4.0-pre",
+               "pluginVersion": "v10.0.0",
                "targets": [
                   {
                      "alias": "",
