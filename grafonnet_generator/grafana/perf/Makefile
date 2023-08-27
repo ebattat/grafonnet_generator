@@ -1,3 +1,4 @@
+# jsonnet/jsonnetfile.lock.json - for working on specific grafonnet version
 apply:
 	@cd jsonnet/ && \
 		jb install && \
