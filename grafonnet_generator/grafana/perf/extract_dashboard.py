@@ -11,9 +11,9 @@ if match:
         parsed_dict = json.loads(extracted_content)
         if not isinstance(parsed_dict, dict):
             raise ValueError("Extracted content is not a valid JSON dictionary.")
-        with open(sys.argv[1], 'w') as o:
-            o.write(extracted_content)
+        print(extracted_content)  # Print the extracted content to stdout
     except json.JSONDecodeError:
         raise ValueError("Extracted content is not valid JSON.")
 else:
     raise ValueError('Dashboard JSON content not found')
+
