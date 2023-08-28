@@ -10,7 +10,7 @@ main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_gene
 
 class UpdateGrafanaLastValueMappings:
     """
-    This class updates elasticsearch dashboard with last value mappings from ElasticSearch
+    This class updates grafana dashboard with last value mappings from ElasticSearch
     """
     # Prevent error messages from being saved instead of versions in case of a connection issue
     MAX_VERSION_LEN = 20
@@ -29,7 +29,7 @@ class UpdateGrafanaLastValueMappings:
 
     def get_last_elasticsearch_versions(self, last_days=7):
         """
-        This method fetched new version from ElasticSearch
+        This method fetches new version from ElasticSearch
         :param last_days: default fetch 7 days
         :return:
         """
