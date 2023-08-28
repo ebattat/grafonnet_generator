@@ -3,8 +3,7 @@ import json
 import os
 from datetime import datetime, timedelta
 
-
-from elasticsearch_operations import ElasticSearchOperations
+from grafonnet_generator.common.elasticsearch.elasticsearch_operations import ElasticSearchOperations
 
 main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/grafana/perf/jsonnet/main.libsonnet')
 
@@ -30,7 +29,7 @@ class UpdateGrafanaLastValueMappings:
 
     def get_last_elasticsearch_versions(self, last_days=7):
         """
-        This method fetched new version from ElasticSearch
+        This method fetches new version from ElasticSearch
         :param last_days: default fetch 7 days
         :return:
         """
