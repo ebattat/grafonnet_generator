@@ -3,15 +3,14 @@ import json
 import os
 from datetime import datetime, timedelta
 
+from grafonnet_generator.common.elasticsearch.elasticsearch_operations import ElasticSearchOperations
 
-from elasticsearch_operations import ElasticSearchOperations
-
-main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/grafana/perf/jsonnet/main.libsonnet')
+main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/elasticsearch/perf/jsonnet/main.libsonnet')
 
 
 class UpdateGrafanaLastValueMappings:
     """
-    This class updates grafana dashboard with last value mappings from ElasticSearch
+    This class updates elasticsearch dashboard with last value mappings from ElasticSearch
     """
     # Prevent error messages from being saved instead of versions in case of a connection issue
     MAX_VERSION_LEN = 20
