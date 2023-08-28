@@ -14,14 +14,14 @@ jobs:
 
       - name: Update product versions in main.libsonnet
         env:
-          PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/elasticsearch/perf/jsonnet/main.libsonnet
+          PERF_MAIN_LIBSONNET_PATH: grafonnet_generator/grafana/perf/jsonnet/main.libsonnet
           ELASTICSEARCH: ${{ secrets.ELASTICSEARCH }}
           ELASTICSEARCH_PORT: ${{ secrets.ELASTICSEARCH_PORT }}
           ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
           ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
         run: |
           pip install elasticsearch==7.17.6
-          python $GITHUB_WORKSPACE/grafonnet_generator/common/grafana/update_versions_main_libsonnet.py
+          python $GITHUB_WORKSPACE/grafonnet_generator/grafana/update_versions_main_libsonnet.py
 
       - name: Generate elasticsearch dashboard.json using grafonnet container
         run: |
