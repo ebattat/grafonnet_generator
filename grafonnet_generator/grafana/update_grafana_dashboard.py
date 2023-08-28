@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.INFO)
 # Access environment variables using os.environ
 grafana_url = os.environ.get('PERF_GRAFANA_URL', '')
 api_key = os.environ.get('PERF_GRAFANA_API_KEY', '')
-json_dashboard_path = os.environ.get('PERF_GRAFANA_JSON', 'grafonnet_generator/elasticsearch/perf/dashboard.json')
+json_dashboard_path = os.environ.get('PERF_GRAFANA_JSON', 'grafonnet_generator/grafana/perf/dashboard.json')
 
 
 class GrafanaOperations:
