@@ -47,7 +47,7 @@ jobs:
               pip install elasticsearch==7.17.6
               # backup dashboard.json before adding dashboard version by python code
               cp $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard.json $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard_backup.json
-              python $GITHUB_WORKSPACE/grafonnet_generator/grafana/update_grafana_dashboard.py
+              cd "$GITHUB_WORKSPACE" && PYTHONPATH=. python grafonnet_generator/grafana/update_grafana_dashboard.py
               # revert dashboard.json w/o grafana dashboard version
               cp -p $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard_backup.json $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf/dashboard.json
 
