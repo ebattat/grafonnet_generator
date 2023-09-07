@@ -468,6 +468,14 @@
                            "index": 140,
                            "text": "4.12.5-2"
                         },
+                        "41263": {
+                           "index": 149,
+                           "text": "4.12.6-3"
+                        },
+                        "41272": {
+                           "index": 152,
+                           "text": "4.12.7-2"
+                        },
                         "4130": {
                            "index": 106,
                            "text": "4.13.0"
@@ -556,6 +564,10 @@
                            "index": 147,
                            "text": "4.13.10"
                         },
+                        "41311": {
+                           "index": 150,
+                           "text": "4.13.11"
+                        },
                         "4131154": {
                            "index": 115,
                            "text": "4.13.1-154"
@@ -619,6 +631,10 @@
                         "4134": {
                            "index": 130,
                            "text": "4.13.4"
+                        },
+                        "4134140": {
+                           "index": 151,
+                           "text": "4.13.4-140"
                         },
                         "413426": {
                            "index": 145,
@@ -1767,7 +1783,7 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
+                     "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
                      "refId": "D",
                      "timeField": "timestamp"
                   },
@@ -1777,6 +1793,17 @@
                         {
                            "field": "kind.keyword",
                            "id": "2",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "scale",
+                           "id": "3",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -8570,7 +8597,7 @@
    },
    "timepicker": { },
    "timezone": "",
-   "title": "PerfCI-Regression-Summary",
-   "uid": "T4775LKnzzmichey",
+   "title": "PerfCI-Regression-Summary-Test",
+   "uid": "LrMyHlzIz",
    "weekStart": ""
 }
