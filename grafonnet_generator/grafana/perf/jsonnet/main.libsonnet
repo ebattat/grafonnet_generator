@@ -10,7 +10,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 + g.dashboard.time.withTo('now')
 + g.dashboard.withTimepicker({},)
 + g.dashboard.withTimezone("")
-+ g.dashboard.withUid('T4775LKnzzmichey')
++ g.dashboard.withUid('LrMyHlzIz')
 + g.dashboard.withWeekStart("")
 + g.dashboard.withLiveNow(false)
 
