@@ -468,6 +468,14 @@
                            "index": 140,
                            "text": "4.12.5-2"
                         },
+                        "41263": {
+                           "index": 149,
+                           "text": "4.12.6-3"
+                        },
+                        "41272": {
+                           "index": 152,
+                           "text": "4.12.7-2"
+                        },
                         "4130": {
                            "index": 106,
                            "text": "4.13.0"
@@ -556,6 +564,10 @@
                            "index": 147,
                            "text": "4.13.10"
                         },
+                        "41311": {
+                           "index": 150,
+                           "text": "4.13.11"
+                        },
                         "4131154": {
                            "index": 115,
                            "text": "4.13.1-154"
@@ -619,6 +631,10 @@
                         "4134": {
                            "index": 130,
                            "text": "4.13.4"
+                        },
+                        "4134140": {
+                           "index": 151,
+                           "text": "4.13.4-140"
                         },
                         "413426": {
                            "index": 145,
@@ -1731,7 +1747,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Total %CPU [240 cores]: 6 {{term kind.keyword}}",
+                     "alias": "Total %CPU [240 cores]: {{term scale}} {{term kind.keyword}}",
                      "bucketAggs": [
                         {
                            "field": "kind.keyword",
