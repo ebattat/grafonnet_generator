@@ -468,12 +468,8 @@
                            "index": 140,
                            "text": "4.12.5-2"
                         },
-                        "41263": {
-                           "index": 149,
-                           "text": "4.12.6-3"
-                        },
                         "41272": {
-                           "index": 152,
+                           "index": 149,
                            "text": "4.12.7-2"
                         },
                         "4130": {
@@ -560,12 +556,8 @@
                            "index": 109,
                            "text": "4.13.1"
                         },
-                        "41310": {
-                           "index": 147,
-                           "text": "4.13.10"
-                        },
                         "41311": {
-                           "index": 150,
+                           "index": 147,
                            "text": "4.13.11"
                         },
                         "4131154": {
@@ -633,16 +625,12 @@
                            "text": "4.13.4"
                         },
                         "4134140": {
-                           "index": 151,
+                           "index": 148,
                            "text": "4.13.4-140"
                         },
                         "413426": {
                            "index": 145,
                            "text": "4.13.4-26"
-                        },
-                        "413482": {
-                           "index": 148,
-                           "text": "4.13.4-82"
                         },
                         "4136": {
                            "index": 122,
@@ -1638,47 +1626,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Total {{term kind.keyword}} Memory (GB) [384GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "total_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "B",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "Total {{term kind.keyword}} %CPU [240 cores]",
                      "bucketAggs": [
                         {
@@ -1713,7 +1660,7 @@
                         }
                      ],
                      "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "C",
+                     "refId": "B",
                      "timeField": "timestamp"
                   },
                   {
@@ -1783,49 +1730,8 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "D",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Total {{term kind.keyword}} Memory (GB) [384GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "kind.keyword",
-                           "id": "2",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "total_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "E",
+                     "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
+                     "refId": "C",
                      "timeField": "timestamp"
                   },
                   {
@@ -1864,7 +1770,7 @@
                         }
                      ],
                      "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "F",
+                     "refId": "D",
                      "timeField": "timestamp"
                   }
                ],
@@ -8590,7 +8496,7 @@
    },
    "timepicker": { },
    "timezone": "",
-   "title": "PerfCI-Regression-Summary",
-   "uid": "T4775LKnzzmichey",
+   "title": "PerfCI-Regression-Summary-Test",
+   "uid": "LrMyHlzIz",
    "weekStart": ""
 }
