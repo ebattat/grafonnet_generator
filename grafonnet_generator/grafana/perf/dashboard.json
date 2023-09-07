@@ -1767,7 +1767,7 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
+                     "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
                      "refId": "D",
                      "timeField": "timestamp"
                   },
@@ -1777,6 +1777,17 @@
                         {
                            "field": "kind.keyword",
                            "id": "2",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "scale",
+                           "id": "3",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -8570,7 +8581,7 @@
    },
    "timepicker": { },
    "timezone": "",
-   "title": "PerfCI-Regression-Summary",
-   "uid": "T4775LKnzzmichey",
+   "title": "PerfCI-Regression-Summary-Test",
+   "uid": "LrMyHlzIz",
    "weekStart": ""
 }
