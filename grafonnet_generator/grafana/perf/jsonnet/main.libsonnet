@@ -1144,7 +1144,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
 
                 elasticsearch.bucketAggs.Terms.withField('scale)
-                + elasticsearch.bucketAggs.Terms.withId('2')
+                + elasticsearch.bucketAggs.Terms.withId('3')
                 + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
                 + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
