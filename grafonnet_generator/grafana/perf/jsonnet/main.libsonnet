@@ -1164,7 +1164,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version")
+              +elasticsearch.withQuery("SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version")
               +elasticsearch.withRefId('D')
               +elasticsearch.withTimeField('timestamp'),
 
@@ -1177,6 +1177,14 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
                 elasticsearch.bucketAggs.Terms.withField('kind.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('2')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('scale')
+                + elasticsearch.bucketAggs.Terms.withId('3')
                 + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
                 + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
