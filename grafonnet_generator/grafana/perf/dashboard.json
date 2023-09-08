@@ -5766,7 +5766,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Memory cache",
+                     "alias": "{{field}}: {{term scale}} vms",
                      "bucketAggs": [
                         {
                            "field": "scale",
@@ -5804,7 +5804,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "H",
+                     "refId": "I",
                      "timeField": "timestamp"
                   },
                   {
@@ -5838,7 +5838,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "I",
+                     "refId": "G",
                      "timeField": "timestamp"
                   }
                ],
