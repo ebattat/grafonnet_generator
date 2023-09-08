@@ -5622,158 +5622,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Memory(GB) [384GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "total_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "F",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-0 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-0_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "E",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-1 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-1_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "G",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-2 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-2_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "H",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "%CPU [240 cores]",
                      "bucketAggs": [
                         {
@@ -5806,7 +5654,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "I",
+                     "refId": "E",
                      "timeField": "timestamp"
                   },
                   {
@@ -5842,7 +5690,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "J",
+                     "refId": "F",
                      "timeField": "timestamp"
                   },
                   {
@@ -5878,7 +5726,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "K",
+                     "refId": "G",
                      "timeField": "timestamp"
                   },
                   {
@@ -5914,7 +5762,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "L",
+                     "refId": "H",
                      "timeField": "timestamp"
                   },
                   {
@@ -5948,7 +5796,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "M",
+                     "refId": "I",
                      "timeField": "timestamp"
                   }
                ],
@@ -6210,158 +6058,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Memory(GB) [384GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "total_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000/2"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "F",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-0 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-0_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "E",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-1 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-1_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000/2"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "G",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "Memory Worker-2 (GB) [128GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-2_Memory",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000/2"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "H",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "%CPU [240 cores]",
                      "bucketAggs": [
                         {
@@ -6394,7 +6090,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "I",
+                     "refId": "E",
                      "timeField": "timestamp"
                   },
                   {
@@ -6430,7 +6126,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "J",
+                     "refId": "F",
                      "timeField": "timestamp"
                   },
                   {
@@ -6466,7 +6162,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "K",
+                     "refId": "G",
                      "timeField": "timestamp"
                   },
                   {
@@ -6502,7 +6198,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "L",
+                     "refId": "H",
                      "timeField": "timestamp"
                   },
                   {
@@ -6536,7 +6232,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "M",
+                     "refId": "I",
                      "timeField": "timestamp"
                   }
                ],
