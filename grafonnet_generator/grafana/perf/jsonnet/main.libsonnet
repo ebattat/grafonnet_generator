@@ -4970,6 +4970,10 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-2_CPU')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-1_CPU')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
 
               ])
