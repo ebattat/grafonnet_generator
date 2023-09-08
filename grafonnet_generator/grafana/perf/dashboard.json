@@ -5795,6 +5795,12 @@
                            "id": "1",
                            "settings": { },
                            "type": "max"
+                        },
+                        {
+                           "field": "worker-1_CPU",
+                           "id": "1",
+                           "settings": { },
+                           "type": "max"
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
