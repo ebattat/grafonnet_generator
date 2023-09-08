@@ -4945,6 +4945,40 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
+              elasticsearch.withAlias('Memory cache')
+
+              + elasticsearch.withBucketAggs([
+                elasticsearch.bucketAggs.Terms.withField('scale')
+                + elasticsearch.bucketAggs.Terms.withId('3')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+                + elasticsearch.bucketAggs.DateHistogram.withId('2')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+
+
+              ])
+
+              + elasticsearch.withHide(false)
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-2_CPU')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
+
+              ])
+
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
+              + elasticsearch.withRefId('H')
+              + elasticsearch.withTimeField('timestamp'),
+
+              ////
 
               elasticsearch.withAlias('VMs #')
 
