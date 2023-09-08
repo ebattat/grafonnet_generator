@@ -4800,150 +4800,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
-              elasticsearch.withAlias('Memory(GB) [384GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('total_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('F')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-              elasticsearch.withAlias('Memory Worker-0 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-0_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('E')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
-              elasticsearch.withAlias('Memory Worker-1 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-1_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('G')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
-
-              elasticsearch.withAlias('Memory Worker-2 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-2_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('H')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
 
               elasticsearch.withAlias('%CPU [240 cores]')
 
@@ -4975,7 +4831,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
+              + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5011,7 +4867,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('J')
+              + elasticsearch.withRefId('F')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5047,7 +4903,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('K')
+              + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5082,11 +4938,45 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('L')
+              + elasticsearch.withRefId('H')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
 
+              elasticsearch.withAlias('%CPU worker-3 [80 cores]')
+
+              + elasticsearch.withBucketAggs([
+                elasticsearch.bucketAggs.Terms.withField('scale')
+                + elasticsearch.bucketAggs.Terms.withId('3')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+                + elasticsearch.bucketAggs.DateHistogram.withId('2')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+
+
+              ])
+
+              + elasticsearch.withHide(false)
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-2_CPU')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
+
+              ])
+
+              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
+              + elasticsearch.withRefId('J')
+              + elasticsearch.withTimeField('timestamp'),
+
+              ////
 
               elasticsearch.withAlias('VMs #')
 
@@ -5116,10 +5006,11 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('M')
+              + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp')
 
               ////
+
 
 
 
@@ -5352,150 +5243,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
-              elasticsearch.withAlias('Memory(GB) [384GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('total_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('F')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-              elasticsearch.withAlias('Memory Worker-0 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-0_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('E')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
-              elasticsearch.withAlias('Memory Worker-1 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-1_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('G')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
-
-              elasticsearch.withAlias('Memory Worker-2 (GB) [128GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-2_Memory')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000000000/2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-              ])
-
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('H')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
 
               elasticsearch.withAlias('%CPU [240 cores]')
 
@@ -5527,7 +5274,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
+              + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5563,7 +5310,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('J')
+              + elasticsearch.withRefId('F')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5599,7 +5346,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('K')
+              + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5634,7 +5381,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('L')
+              + elasticsearch.withRefId('H')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5668,7 +5415,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('M')
+              + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp')
 
               ////
