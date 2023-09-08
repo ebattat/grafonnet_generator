@@ -4945,7 +4945,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
-              elasticsearch.withAlias('Memory cache')
+              elasticsearch.withAlias('{{field}}: {{term scale}} vms')
 
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('scale')
@@ -4971,6 +4971,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('worker-1_CPU')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withSettings({})
@@ -4979,7 +4980,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('H')
+              + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5012,7 +5013,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
+              + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp')
 
               ////
