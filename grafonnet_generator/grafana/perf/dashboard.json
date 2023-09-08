@@ -5766,6 +5766,48 @@
                      "timeField": "timestamp"
                   },
                   {
+                     "alias": "Memory cache",
+                     "bucketAggs": [
+                        {
+                           "field": "scale",
+                           "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "timestamp",
+                           "id": "2",
+                           "settings": {
+                              "interval": "auto"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "hide": false,
+                     "metrics": [
+                        {
+                           "field": "worker-2_CPU",
+                           "id": "1",
+                           "settings": { },
+                           "type": "max"
+                        },
+                        {
+                           "field": "worker-1_CPU",
+                           "id": "1",
+                           "settings": { },
+                           "type": "max"
+                        }
+                     ],
+                     "query": "scale:240 AND ocp_version:$ocp_version",
+                     "refId": "H",
+                     "timeField": "timestamp"
+                  },
+                  {
                      "alias": "VMs #",
                      "bucketAggs": [
                         {
