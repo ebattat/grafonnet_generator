@@ -916,7 +916,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
         + g.panel.row.withId(142)
         + g.panel.row.withPanels([
 
-          g.panel.stateTimeline.new('vdbench (IOPS)')
+          g.panel.stateTimeline.new('vdbench (IOPS) test')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-vdbench-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
