@@ -1175,52 +1175,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               +elasticsearch.withTimeField('timestamp'),
 
 
-             elasticsearch.withAlias('{{field}} [GB]')
-
-              + elasticsearch.withBucketAggs([
-
-                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('6')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('5')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withMinDocCount('0')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withTimeZone('utc')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withTrimEdges('0')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-
-              ])
-
-              +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version")
-              +elasticsearch.withRefId('C')
-              +elasticsearch.withTimeField('timestamp'),
-
               ////
 
               elasticsearch.withAlias('Total %CPU [240 cores]: {{term scale}} {{term kind.keyword}}')
