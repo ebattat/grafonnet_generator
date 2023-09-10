@@ -5945,7 +5945,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}}: {{term scale}} vms",
+                     "alias": "{{field}} [GB]",
                      "bucketAggs": [
                         {
                            "field": "scale",
@@ -5970,15 +5970,27 @@
                      "hide": false,
                      "metrics": [
                         {
-                           "field": "worker-2_CPU",
+                           "field": "VM Memory Cache",
                            "id": "1",
-                           "settings": { },
+                           "settings": {
+                              "script": "_value/1000000000"
+                           },
                            "type": "max"
                         },
                         {
-                           "field": "worker-1_CPU",
-                           "id": "1",
-                           "settings": { },
+                           "field": "VM Memory working set bytes",
+                           "id": "2",
+                           "settings": {
+                              "script": "_value/1000000000"
+                           },
+                           "type": "max"
+                        },
+                        {
+                           "field": "VM Memory Max Usage Bytes",
+                           "id": "3",
+                           "settings": {
+                              "script": "_value/1000000000"
+                           },
                            "type": "max"
                         }
                      ],
