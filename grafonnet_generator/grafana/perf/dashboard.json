@@ -1684,6 +1684,54 @@
                      "timeField": "timestamp"
                   },
                   {
+                     "alias": "{{field}} [GB]",
+                     "bucketAggs": [
+                        {
+                           "field": "kind.keyword",
+                           "id": "6",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "timestamp",
+                           "id": "5",
+                           "settings": {
+                              "interval": "auto",
+                              "min_doc_count": "0",
+                              "timeZone": "utc",
+                              "trimEdges": "0"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "hide": false,
+                     "metrics": [
+                        {
+                           "field": "VM Memory Cache",
+                           "id": "1",
+                           "type": "max"
+                        },
+                        {
+                           "field": "VM Memory working set bytes",
+                           "id": "2",
+                           "type": "max"
+                        },
+                        {
+                           "field": "VM Memory Max Usage Bytes",
+                           "id": "3",
+                           "type": "max"
+                        }
+                     ],
+                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
+                     "refId": "E",
+                     "timeField": "timestamp"
+                  },
+                  {
                      "alias": "{{term Run.keyword}} : {{term Threads}}th :{{term scale}} {{term kind.keyword}}s",
                      "bucketAggs": [
                         {
