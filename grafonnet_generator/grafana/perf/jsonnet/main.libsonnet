@@ -1094,12 +1094,15 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               + elasticsearch.withMetrics([
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
                 elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
 
               ])
