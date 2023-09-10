@@ -1575,7 +1575,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               +elasticsearch.withQuery("SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version")
               +elasticsearch.withRefId('E')
-              +elasticsearch.withTimeField('timestamp')
+              +elasticsearch.withTimeField('timestamp'),
 
             ////
 
