@@ -488,7 +488,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&viewPanel=128')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&viewPanel=32&from=now-45d&to=now')
 
             ])
 
