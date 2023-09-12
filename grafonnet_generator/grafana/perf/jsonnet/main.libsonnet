@@ -6269,7 +6269,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           //////////////////
 
           g.panel.table.new("clusterbuster artifacts")
-          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-results')
+          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-metadata-results')
           + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
           + g.panel.table.standardOptions.withDecimals(1)
 
@@ -6292,7 +6292,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             ])
             + g.panel.table.fieldConfig.withOverrides([
 
-              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
 
               g.panel.table.fieldOverride.byName.new('Date')
@@ -6318,13 +6318,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               elasticsearch.withAlias('')
 
               + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('4')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('5')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
 
 
                 elasticsearch.bucketAggs.Terms.withField('timestamp')
@@ -6412,7 +6405,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           //////////////////
 
           g.panel.table.new("clusterbuster release artifacts")
-          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-release-results')
+          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-metadata-release-results')
           + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
           + g.panel.table.standardOptions.withDecimals(1)
 
@@ -6435,7 +6428,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             ])
             + g.panel.table.fieldConfig.withOverrides([
 
-              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
 
               g.panel.table.fieldOverride.byName.new('Date')
