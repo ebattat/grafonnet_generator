@@ -1919,7 +1919,7 @@
                      "timeField": "timestamp"
                   }
                ],
-               "title": "vdbench (IOPS)",
+               "title": "vdbench (IOPS) test",
                "type": "state-timeline"
             },
             {
@@ -7552,7 +7552,7 @@
                "type": "table"
             },
             {
-               "datasource": "Elasticsearch-clusterbuster-results",
+               "datasource": "Elasticsearch-clusterbuster-metadata-results",
                "fieldConfig": {
                   "defaults": {
                      "decimals": 1,
@@ -7575,7 +7575,7 @@
                      {
                         "matcher": {
                            "id": "byName",
-                           "options": "run_artifacts_url"
+                           "options": "Artifacts Link"
                         },
                         "properties": [
                            {
@@ -7630,17 +7630,6 @@
                   {
                      "alias": "",
                      "bucketAggs": [
-                        {
-                           "field": "ci_date.keyword",
-                           "id": "4",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "5"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "timestamp",
                            "id": "2",
@@ -7727,7 +7716,7 @@
                "type": "table"
             },
             {
-               "datasource": "Elasticsearch-clusterbuster-release-results",
+               "datasource": "Elasticsearch-clusterbuster-metadata-release-results",
                "fieldConfig": {
                   "defaults": {
                      "decimals": 1,
@@ -7750,7 +7739,7 @@
                      {
                         "matcher": {
                            "id": "byName",
-                           "options": "run_artifacts_url"
+                           "options": "Artifacts Link"
                         },
                         "properties": [
                            {
