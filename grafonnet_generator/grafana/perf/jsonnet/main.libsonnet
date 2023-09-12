@@ -488,7 +488,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&viewPanel=128')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&viewPanel=32&from=now-45d&to=now')
 
             ])
 
@@ -642,7 +642,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&viewPanel=129')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&editPanel=33&from=now-45d&to=now')
 
             ])
 
@@ -816,7 +816,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&viewPanel=129')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&editPanel=33&from=now-45d&to=now')
 
             ])
 
@@ -955,10 +955,10 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=133'),
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=34'),
 
-              stateTimeline.link.withTitle('scale  log link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=195')
+              stateTimeline.link.withTitle('scale artifacts link')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=35')
 
             ])
 
@@ -1322,8 +1322,9 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&editPanel=133&from=now-45d&to=now')
-
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=34)
+              stateTimeline.link.withTitle('scale artifacts link')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=35')
             ])
 
             + stateTimeline.options.withAlignValue('center')
@@ -1686,7 +1687,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
 
@@ -1898,7 +1899,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
 
@@ -2371,7 +2372,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
             + stateTimeline.options.withAlignValue('center')
@@ -2840,7 +2841,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
             + stateTimeline.options.withAlignValue('left')
@@ -3294,7 +3295,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
             + stateTimeline.options.withAlignValue('left')
@@ -3497,7 +3498,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=36')
 
             ])
             + stateTimeline.options.withAlignValue('left')
@@ -3719,7 +3720,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=1659592686997&to=1663480686997&viewPanel=166')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=37')
 
             ])
 
@@ -4115,7 +4116,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=37')
 
             ])
 
@@ -4547,7 +4548,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=37')
 
             ])
 
@@ -4667,7 +4668,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=150')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=37')
 
             ])
 
@@ -4826,7 +4827,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/regression-summary?orgId=1&from=now-45d&to=now&viewPanel=190')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=38')
 
             ])
 
@@ -5278,7 +5279,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('artifacts link')
-              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=194')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=39')
 
             ])
 
@@ -6269,7 +6270,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           //////////////////
 
           g.panel.table.new("clusterbuster artifacts")
-          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-results')
+          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-metadata-results')
           + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
           + g.panel.table.standardOptions.withDecimals(1)
 
@@ -6292,7 +6293,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             ])
             + g.panel.table.fieldConfig.withOverrides([
 
-              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
 
               g.panel.table.fieldOverride.byName.new('Date')
@@ -6318,13 +6319,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               elasticsearch.withAlias('')
 
               + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('4')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('5')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
 
 
                 elasticsearch.bucketAggs.Terms.withField('timestamp')
@@ -6412,7 +6406,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           //////////////////
 
           g.panel.table.new("clusterbuster release artifacts")
-          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-release-results')
+          + g.panel.table.queryOptions.withDatasource('Elasticsearch-clusterbuster-metadata-release-results')
           + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
           + g.panel.table.standardOptions.withDecimals(1)
 
@@ -6435,7 +6429,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             ])
             + g.panel.table.fieldConfig.withOverrides([
 
-              g.panel.table.fieldOverride.byName.new('run_artifacts_url')
+              g.panel.table.fieldOverride.byName.new('Artifacts Link')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1600),
 
               g.panel.table.fieldOverride.byName.new('Date')
