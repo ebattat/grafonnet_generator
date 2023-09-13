@@ -1684,7 +1684,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
+                     "alias": "{{field}} [GB]: 1 vm",
                      "bucketAggs": [
                         {
                            "field": "kind.keyword",
@@ -1862,8 +1862,19 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
+                     "alias": "{{field}} [GB]: {{term scale}} {{kind.keyword}}s",
                      "bucketAggs": [
+                        {
+                           "field": "scale",
+                           "id": "7",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
                         {
                            "field": "kind.keyword",
                            "id": "6",
@@ -2096,7 +2107,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
+                     "alias": "{{field}} [GB]: 1 vm",
                      "bucketAggs": [
                         {
                            "field": "kind.keyword",
@@ -2274,8 +2285,19 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
+                     "alias": "{{field}} [GB]: {{term scale}} {{kind.keyword}}s",
                      "bucketAggs": [
+                        {
+                           "field": "scale",
+                           "id": "7",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
                         {
                            "field": "kind.keyword",
                            "id": "6",
