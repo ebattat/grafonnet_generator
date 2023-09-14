@@ -623,7 +623,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
             + g.panel.stateTimeline.withTargets([
-              elasticsearch.withAlias('{{term db_type.keyword}}  : {{term current_worker}} threads : {{term kind.keyword}}:  {{term storage_type.keyword}}')
+              elasticsearch.withAlias('{{term db_type.keyword}}  : {{field}} [GB]: {{term storage_type.keyword}}')
 
               + elasticsearch.withBucketAggs([
                 elasticsearch.bucketAggs.Terms.withField('db_type.keyword')
@@ -634,27 +634,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
 
-
-                elasticsearch.bucketAggs.Terms.withField('current_worker')
-                + elasticsearch.bucketAggs.Terms.withId('4')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('asc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
                 elasticsearch.bucketAggs.Terms.withField('storage_type.keyword')
                 + elasticsearch.bucketAggs.Terms.withId('5')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
-                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('6')
                 + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
                 + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
@@ -675,14 +656,22 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
               + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('tpm')
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('_value/1000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
 
 
               ])
-              + elasticsearch.withQuery('_exists_:tpm AND db_type:$db_type AND current_worker:$current_worker AND kind:$kind AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery('_exists_:tpm AND db_type:$db_type AND kind:vm AND ocp_version:$ocp_version')
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
