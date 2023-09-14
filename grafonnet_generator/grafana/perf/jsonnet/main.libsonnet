@@ -255,8 +255,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
       + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
-              + stateTimeline.link.withTitle('CI Status)
-              + stateTimeline.link.withUrl('https://github.com/redhat-performance/benchmark-runner/actions/workflows/Nightly_Perf_Env_CI.yml')
+              + stateTimeline.link.withTitle('OCP version')
+              + stateTimeline.link.withUrl('https://openshift-release.apps.ci.l2s4.p1.openshiftapps.com/')
 
       ])
 
