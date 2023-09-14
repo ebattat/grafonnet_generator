@@ -1026,10 +1026,10 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             ])
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(15)
+            + stateTimeline.gridPos.withH(10)
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
-            + stateTimeline.gridPos.withY(38)
+            + stateTimeline.gridPos.withY(67)
 
             + stateTimeline.withId(115)
             + stateTimeline.withInterval('1d')
@@ -1049,9 +1049,34 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.options.tooltip.withMode('single')
 
             + g.panel.stateTimeline.withTargets([
-              elasticsearch.withAlias('{{field}} [GB]')
+              elasticsearch.withAlias('msg size: {{term read_message_size}} :{{term num_threads}}th: {{term kind.keyword}}')
 
               + elasticsearch.withBucketAggs([
+                elasticsearch.bucketAggs.Terms.withField('read_message_size')
+                + elasticsearch.bucketAggs.Terms.withId('4')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('asc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+
+                elasticsearch.bucketAggs.Terms.withField('num_threads')
+                + elasticsearch.bucketAggs.Terms.withId('5')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('asc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+
+                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('6')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
 
 
                 elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
@@ -1070,23 +1095,15 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
               + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('norm_byte')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value*8/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
 
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ops AND kind:vm AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind  AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp')
 
