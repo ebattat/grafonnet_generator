@@ -1143,6 +1143,150 @@
                ],
                "title": "HammerDB KTPM",
                "type": "state-timeline"
+            },
+            {
+               "datasource": "Elasticsearch-hammerdb-results",
+               "fieldConfig": {
+                  "defaults": {
+                     "color": {
+                        "mode": "thresholds"
+                     },
+                     "custom": {
+                        "fillOpacity": 70,
+                        "lineWidth": 0
+                     },
+                     "mappings": [ ],
+                     "min": 0,
+                     "thresholds": {
+                        "mode": "percentage",
+                        "steps": [
+                           {
+                              "color": "dark-red"
+                           },
+                           {
+                              "color": "semi-dark-orange",
+                              "value": 50
+                           },
+                           {
+                              "color": "super-light-green",
+                              "value": 80
+                           },
+                           {
+                              "color": "dark-green",
+                              "value": 90
+                           },
+                           {
+                              "color": "dark-blue",
+                              "value": 100
+                           }
+                        ]
+                     }
+                  },
+                  "overrides": [ ]
+               },
+               "gridPos": {
+                  "h": 38,
+                  "w": 24,
+                  "x": 0,
+                  "y": 13
+               },
+               "id": 6,
+               "interval": "1d",
+               "links": [
+                  {
+                     "targetBlank": true,
+                     "title": "artifacts link",
+                     "url": "https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&viewPanel=32&from=now-45d&to=now"
+                  }
+               ],
+               "options": {
+                  "alignValue": "center",
+                  "legend": {
+                     "displayMode": "list",
+                     "placement": "bottom"
+                  },
+                  "mergeValues": false,
+                  "rowHeight": 0.90000000000000002,
+                  "showValue": "always",
+                  "tooltip": {
+                     "mode": "single"
+                  }
+               },
+               "pluginVersion": "v10.0.0",
+               "targets": [
+                  {
+                     "alias": "{{term db_type.keyword}}  : {{term current_worker}} threads : {{term kind.keyword}}:  {{term storage_type.keyword}}",
+                     "bucketAggs": [
+                        {
+                           "field": "db_type.keyword",
+                           "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "asc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "current_worker",
+                           "id": "4",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "asc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "storage_type.keyword",
+                           "id": "5",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "kind.keyword",
+                           "id": "6",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "timestamp",
+                           "id": "2",
+                           "settings": {
+                              "interval": "auto"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "metrics": [
+                        {
+                           "field": "tpm",
+                           "id": "1",
+                           "settings": {
+                              "script": "_value/1000"
+                           },
+                           "type": "max"
+                        }
+                     ],
+                     "query": "_exists_:tpm AND db_type:$db_type AND current_worker:$current_worker AND kind:$kind AND ocp_version:$ocp_version",
+                     "refId": "A",
+                     "timeField": "timestamp"
+                  }
+               ],
+               "title": "HammerDB VM Memory",
+               "type": "state-timeline"
             }
          ],
          "title": "Hammerdb",
@@ -1156,7 +1300,7 @@
             "x": 0,
             "y": 13
          },
-         "id": 6,
+         "id": 7,
          "panels": [
             {
                "datasource": "Elasticsearch-uperf-results",
@@ -1206,7 +1350,7 @@
                   "x": 0,
                   "y": 52
                },
-               "id": 7,
+               "id": 8,
                "interval": "1d",
                "links": [
                   {
@@ -1409,7 +1553,7 @@
                   "x": 0,
                   "y": 67
                },
-               "id": 8,
+               "id": 9,
                "interval": "1d",
                "links": [
                   {
@@ -1510,7 +1654,7 @@
             "x": 0,
             "y": 14
          },
-         "id": 9,
+         "id": 10,
          "panels": [
             {
                "datasource": "Elasticsearch-vdbench-results",
@@ -1558,7 +1702,7 @@
                   "x": 0,
                   "y": 83
                },
-               "id": 10,
+               "id": 11,
                "interval": "1d",
                "links": [
                   {
@@ -1981,7 +2125,7 @@
                   "x": 0,
                   "y": 131
                },
-               "id": 11,
+               "id": 12,
                "interval": "1d",
                "links": [
                   {
@@ -2368,7 +2512,7 @@
             "x": 0,
             "y": 15
          },
-         "id": 12,
+         "id": 13,
          "panels": [
             {
                "datasource": "Elasticsearch-clusterbuster-cpusoaker-results",
@@ -2417,7 +2561,7 @@
                   "x": 0,
                   "y": 182
                },
-               "id": 13,
+               "id": 14,
                "interval": "1d",
                "links": [
                   {
@@ -2651,7 +2795,7 @@
                   "x": 0,
                   "y": 192
                },
-               "id": 14,
+               "id": 15,
                "interval": "1d",
                "links": [
                   {
@@ -2852,7 +2996,7 @@
                   "x": 0,
                   "y": 195
                },
-               "id": 15,
+               "id": 16,
                "interval": "1d",
                "links": [
                   {
@@ -3104,7 +3248,7 @@
             "x": 0,
             "y": 16
          },
-         "id": 16,
+         "id": 17,
          "panels": [
             {
                "datasource": "Elasticsearch-clusterbuster-fio-results",
@@ -3153,7 +3297,7 @@
                   "x": 0,
                   "y": 183
                },
-               "id": 17,
+               "id": 18,
                "interval": "1d",
                "links": [
                   {
@@ -3609,7 +3753,7 @@
             "x": 0,
             "y": 17
          },
-         "id": 18,
+         "id": 19,
          "panels": [
             {
                "datasource": "Elasticsearch-clusterbuster-files-results",
@@ -3659,7 +3803,7 @@
                   "x": 0,
                   "y": 184
                },
-               "id": 19,
+               "id": 20,
                "interval": "1d",
                "links": [
                   {
@@ -4089,7 +4233,7 @@
             "x": 0,
             "y": 18
          },
-         "id": 20,
+         "id": 21,
          "panels": [
             {
                "datasource": "Elasticsearch-clusterbuster-uperf-results",
@@ -4139,7 +4283,7 @@
                   "x": 0,
                   "y": 185
                },
-               "id": 21,
+               "id": 22,
                "interval": "1d",
                "links": [
                   {
@@ -4366,7 +4510,7 @@
                   "x": 0,
                   "y": 194
                },
-               "id": 22,
+               "id": 23,
                "interval": "1d",
                "links": [
                   {
@@ -4557,7 +4701,7 @@
             "x": 0,
             "y": 19
          },
-         "id": 23,
+         "id": 24,
          "panels": [
             {
                "datasource": "Elasticsearch-clusterbuster-cpusoaker-release-results",
@@ -4606,7 +4750,7 @@
                   "x": 0,
                   "y": 261
                },
-               "id": 24,
+               "id": 25,
                "interval": "1d",
                "links": [
                   {
@@ -5007,7 +5151,7 @@
                   "x": 0,
                   "y": 297
                },
-               "id": 25,
+               "id": 26,
                "interval": "1d",
                "links": [
                   {
@@ -5403,7 +5547,7 @@
                   "x": 0,
                   "y": 333
                },
-               "id": 26,
+               "id": 27,
                "interval": "1d",
                "links": [
                   {
@@ -5529,7 +5673,7 @@
                   "x": 0,
                   "y": 369
                },
-               "id": 27,
+               "id": 28,
                "interval": "1d",
                "links": [
                   {
@@ -5627,7 +5771,7 @@
             "x": 0,
             "y": 20
          },
-         "id": 28,
+         "id": 29,
          "panels": [
             {
                "datasource": "Elasticsearch-bootstorm-results",
@@ -5689,7 +5833,7 @@
                   "x": 0,
                   "y": 187
                },
-               "id": 29,
+               "id": 30,
                "interval": "1d",
                "links": [
                   {
@@ -6179,7 +6323,7 @@
                   "x": 0,
                   "y": 206
                },
-               "id": 30,
+               "id": 31,
                "interval": "1d",
                "links": [
                   {
@@ -6621,7 +6765,7 @@
             "x": 0,
             "y": 21
          },
-         "id": 31,
+         "id": 32,
          "panels": [
             {
                "datasource": "Elasticsearch-hammerdb-results",
@@ -6755,7 +6899,7 @@
                   "x": 0,
                   "y": 22
                },
-               "id": 32,
+               "id": 33,
                "interval": "1d",
                "links": [
                   {
@@ -7000,7 +7144,7 @@
                   "x": 0,
                   "y": 50
                },
-               "id": 33,
+               "id": 34,
                "interval": "1d",
                "links": [
                   {
@@ -7246,7 +7390,7 @@
                   "x": 0,
                   "y": 65
                },
-               "id": 34,
+               "id": 35,
                "interval": "1d",
                "links": [
                   {
@@ -7468,7 +7612,7 @@
                   "x": 0,
                   "y": 75
                },
-               "id": 35,
+               "id": 36,
                "interval": "1d",
                "links": [
                   {
@@ -7630,7 +7774,7 @@
                   "x": 0,
                   "y": 85
                },
-               "id": 36,
+               "id": 37,
                "interval": "1d",
                "links": [
                   {
@@ -7794,7 +7938,7 @@
                   "x": 0,
                   "y": 91
                },
-               "id": 37,
+               "id": 38,
                "links": [
                   {
                      "targetBlank": true,
@@ -8038,7 +8182,7 @@
                   "x": 0,
                   "y": 97
                },
-               "id": 38,
+               "id": 39,
                "links": [
                   {
                      "targetBlank": true,
@@ -8269,7 +8413,7 @@
                   "x": 0,
                   "y": 102
                },
-               "id": 39,
+               "id": 40,
                "interval": "1d",
                "links": [
                   {
@@ -8375,7 +8519,7 @@
                   "x": 19,
                   "y": 107
                },
-               "id": 40,
+               "id": 41,
                "links": [
                   {
                      "targetBlank": true,
