@@ -1707,41 +1707,8 @@
                "pluginVersion": "v10.0.0",
                "targets": [
                   {
-                     "alias": "msg size: {{term read_message_size}} :{{term num_threads}}th: {{term kind.keyword}}",
+                     "alias": "{{field}} [GB]",
                      "bucketAggs": [
-                        {
-                           "field": "read_message_size",
-                           "id": "4",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "asc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "num_threads",
-                           "id": "5",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "asc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "timestamp",
                            "id": "2",
@@ -1756,15 +1723,31 @@
                      ],
                      "metrics": [
                         {
-                           "field": "norm_byte",
+                           "field": "VM Memory Cache",
                            "id": "1",
                            "settings": {
-                              "script": "_value*8/1000000000"
+                              "script": "_value/1000000000"
                            },
-                           "type": "avg"
+                           "type": "max"
+                        },
+                        {
+                           "field": "VM Memory working set bytes",
+                           "id": "2",
+                           "settings": {
+                              "script": "_value/1000000000"
+                           },
+                           "type": "max"
+                        },
+                        {
+                           "field": "VM Memory Max Usage Bytes",
+                           "id": "3",
+                           "settings": {
+                              "script": "_value/1000000000"
+                           },
+                           "type": "max"
                         }
                      ],
-                     "query": "_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind  AND ocp_version:$ocp_version",
+                     "query": "_exists_:norm_ops AND kind:vm AND ocp_version:$ocp_version",
                      "refId": "A",
                      "timeField": "timestamp"
                   }
