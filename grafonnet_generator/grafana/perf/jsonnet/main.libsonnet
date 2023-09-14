@@ -997,7 +997,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             ]),
 
-          g.panel.stateTimeline.new('Uperf VM Memory')
+          g.panel.stateTimeline.new('Uperf VM  Memory')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-uperf-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
