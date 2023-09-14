@@ -1930,7 +1930,7 @@
                      "timeField": "timestamp"
                   }
                ],
-               "title": "vdbench (IOPS) test",
+               "title": "vdbench (IOPS)",
                "type": "state-timeline"
             },
             {
