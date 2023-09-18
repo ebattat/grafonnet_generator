@@ -2698,65 +2698,6 @@
                "pluginVersion": "v10.0.0",
                "targets": [
                   {
-                     "alias": "{{term Run.keyword}} : {{term Threads}}th : 1 {{term kind.keyword}}",
-                     "bucketAggs": [
-                        {
-                           "field": "Run.keyword",
-                           "id": "2",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "kind.keyword",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "Threads",
-                           "id": "4",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "metrics": [
-                        {
-                           "field": "Resp",
-                           "id": "1",
-                           "type": "avg"
-                        }
-                     ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "A",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "{{field}} [GB]: 1 vm",
                      "bucketAggs": [
                         {
@@ -2810,7 +2751,7 @@
                         }
                      ],
                      "query": "!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "B",
+                     "refId": "A",
                      "timeField": "timestamp"
                   },
                   {
@@ -2878,7 +2819,7 @@
                         }
                      ],
                      "query": "SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "C",
+                     "refId": "B",
                      "timeField": "timestamp"
                   }
                ],
