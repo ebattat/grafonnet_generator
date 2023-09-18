@@ -1949,63 +1949,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]: 1 vm",
-                     "bucketAggs": [
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "C",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "{{term Run.keyword}} : {{term Threads}}th :{{term scale}} {{term kind.keyword}}s",
                      "bucketAggs": [
                         {
@@ -2073,7 +2016,7 @@
                         }
                      ],
                      "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "D",
+                     "refId": "C",
                      "timeField": "timestamp"
                   },
                   {
@@ -2123,75 +2066,7 @@
                         }
                      ],
                      "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "E",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "{{field}} [GB]: {{term scale}} {{kind.keyword}}s",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "7",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "F",
+                     "refId": "D",
                      "timeField": "timestamp"
                   }
                ],
@@ -2372,63 +2247,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]: 1 vm",
-                     "bucketAggs": [
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "C",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "{{term Run.keyword}} : {{term Threads}}th :{{term scale}} {{term kind.keyword}}s",
                      "bucketAggs": [
                         {
@@ -2496,7 +2314,7 @@
                         }
                      ],
                      "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "D",
+                     "refId": "C",
                      "timeField": "timestamp"
                   },
                   {
@@ -2546,75 +2364,7 @@
                         }
                      ],
                      "query": "SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "E",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "{{field}} [GB]: {{term scale}} {{kind.keyword}}s",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "7",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "kind.keyword",
-                           "id": "6",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "5",
-                           "settings": {
-                              "interval": "auto",
-                              "min_doc_count": "0",
-                              "timeZone": "utc",
-                              "trimEdges": "0"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version",
-                     "refId": "F",
+                     "refId": "D",
                      "timeField": "timestamp"
                   }
                ],
@@ -2664,7 +2414,7 @@
                   "overrides": [ ]
                },
                "gridPos": {
-                  "h": 12,
+                  "h": 10,
                   "w": 24,
                   "x": 0,
                   "y": 131
