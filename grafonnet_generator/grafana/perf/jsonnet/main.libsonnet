@@ -1849,7 +1849,231 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ////
 
 
+            ]),
+            ////
+
+            g.panel.stateTimeline.new('vdbench VM memory')
+            + stateTimeline.queryOptions.withDatasource('Elasticsearch-vdbench-results')
+
+
+            + g.panel.stateTimeline.withDescription('Lower is better')
+
+            + stateTimeline.standardOptions.color.withMode('thresholds')
+            + stateTimeline.fieldConfig.defaults.custom.withFillOpacity(70)
+            + stateTimeline.fieldConfig.defaults.custom.withLineWidth(0)
+
+            + stateTimeline.fieldConfig.defaults.withDecimals(1)
+            + stateTimeline.fieldConfig.defaults.withMappings([])
+            + stateTimeline.standardOptions.withMax(-1)
+            + stateTimeline.fieldConfig.defaults.thresholds.withMode('percentage')
+            + stateTimeline.fieldConfig.defaults.thresholds.withSteps([
+              stateTimeline.thresholdStep.withColor('dark-blue'),
+
+              stateTimeline.thresholdStep.withColor('dark-green')
+              + stateTimeline.thresholdStep.withValue(1),
+
+              stateTimeline.thresholdStep.withColor('super-light-green')
+              + stateTimeline.thresholdStep.withValue(10),
+
+              stateTimeline.thresholdStep.withColor('semi-dark-orange')
+              + stateTimeline.thresholdStep.withValue(20),
+
+              stateTimeline.thresholdStep.withColor('dark-red')
+              + stateTimeline.thresholdStep.withValue(50)
+
             ])
+            + stateTimeline.fieldConfig.withOverrides([])
+
+            + stateTimeline.gridPos.withH(50)
+            + stateTimeline.gridPos.withW(24)
+            + stateTimeline.gridPos.withX(0)
+            + stateTimeline.gridPos.withY(131)
+
+            + stateTimeline.withId(134)
+            + stateTimeline.withInterval('1d')
+
+            + stateTimeline.panelOptions.withLinks([
+              stateTimeline.link.withTargetBlank(true)
+              + stateTimeline.link.withTitle('artifacts link')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=34'),
+
+              stateTimeline.link.withTitle('scale artifacts link')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf5l4sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=35')
+
+            ])
+
+            + stateTimeline.options.withAlignValue('center')
+            + stateTimeline.options.legend.withDisplayMode('list')
+            + stateTimeline.options.legend.withPlacement('bottom')
+            + stateTimeline.options.withMergeValues(value = false)
+            + stateTimeline.options.withRowHeight(value = 0.9)
+            + stateTimeline.options.withShowValue('always')
+            + stateTimeline.options.tooltip.withMode('single')
+
+            + g.panel.stateTimeline.withTargets([
+              elasticsearch.withAlias('{{term Run.keyword}} : {{term Threads}}th : 1 {{term kind.keyword}}')
+              + elasticsearch.withBucketAggs([
+                elasticsearch.bucketAggs.Terms.withField('Run.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('2')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('3')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('Threads')
+                + elasticsearch.bucketAggs.Terms.withId('4')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+
+                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+                + elasticsearch.bucketAggs.DateHistogram.withId('5')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withMinDocCount('0')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTimeZone('utc')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTrimEdges('0')
+                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+
+
+              ])
+
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Resp')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
+
+
+              ])
+
+              +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version")
+              +elasticsearch.withRefId('A')
+              +elasticsearch.withTimeField('timestamp'),
+
+
+
+            ////
+
+             elasticsearch.withAlias('{{field}} [GB]: 1 vm')
+
+              + elasticsearch.withBucketAggs([
+
+                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('6')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+                + elasticsearch.bucketAggs.DateHistogram.withId('5')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withMinDocCount('0')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTimeZone('utc')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTrimEdges('0')
+                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+
+
+              ])
+
+
+              + elasticsearch.withHide(false)
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+
+              ])
+
+              +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version")
+              +elasticsearch.withRefId('B')
+              +elasticsearch.withTimeField('timestamp'),
+
+              ////
+
+
+             elasticsearch.withAlias('{{field}} [GB]: {{term scale}} {{kind.keyword}}s')
+
+              + elasticsearch.withBucketAggs([
+
+                elasticsearch.bucketAggs.Terms.withField('scale')
+                + elasticsearch.bucketAggs.Terms.withId('7')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('6')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+                + elasticsearch.bucketAggs.DateHistogram.withId('5')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withMinDocCount('0')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTimeZone('utc')
+                + elasticsearch.bucketAggs.DateHistogram.settings.withTrimEdges('0')
+                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+
+
+              ])
+
+
+              + elasticsearch.withHide(false)
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
+
+              ])
+
+              +elasticsearch.withQuery("SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version")
+              +elasticsearch.withRefId('C')
+              +elasticsearch.withTimeField('timestamp'),
+
+              ////
+
+
+            ])
+
 
 
 
