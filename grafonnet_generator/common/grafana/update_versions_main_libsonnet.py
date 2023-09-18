@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 from grafonnet_generator.common.elasticsearch.elasticsearch_operations import ElasticSearchOperations
 
 main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'grafonnet_generator/grafana/perf/jsonnet/main.libsonnet')
+#  main_libsonnet_path = os.environ.get('PERF_MAIN_LIBSONNET_PATH', 'perf/jsonnet/main.libsonnet')
 
 
 class UpdateGrafanaLastValueMappings:
@@ -46,7 +47,8 @@ class UpdateGrafanaLastValueMappings:
             data = self.elasticsearch.get_elasticsearch_index_by_id(index='ci-status', id=id)
             for version, value in data['_source'].items():
                 if version in display_versions and value not in new_versions.values() and len(value) < self.MAX_VERSION_LEN:
-                    new_versions[value.replace(".", "").replace("-", "")] = value
+                    # Display only numbers in the Grafana panel, removing characters
+                    new_versions[value.replace(".", "").replace("-", "").replace("rc", "").replace("ec", "").replace("fc", "")] = value
 
         return new_versions
 
