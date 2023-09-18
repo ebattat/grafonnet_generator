@@ -6248,60 +6248,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "I",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "VMs #",
                      "bucketAggs": [
                         {
@@ -6332,7 +6278,7 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "J",
+                     "refId": "I",
                      "timeField": "timestamp"
                   }
                ],
@@ -6880,60 +6826,6 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} [GB]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "VM Memory Cache",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory working set bytes",
-                           "id": "2",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        },
-                        {
-                           "field": "VM Memory Max Usage Bytes",
-                           "id": "3",
-                           "settings": {
-                              "script": "_value/1000000000"
-                           },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "I",
-                     "timeField": "timestamp"
-                  },
-                  {
                      "alias": "VMs #",
                      "bucketAggs": [
                         {
@@ -6964,7 +6856,7 @@
                         }
                      ],
                      "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "J",
+                     "refId": "I",
                      "timeField": "timestamp"
                   }
                ],
