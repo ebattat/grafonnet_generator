@@ -450,6 +450,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
         + g.panel.row.withPanels([
 
           g.panel.stateTimeline.new('HammerDB KTPM')
+            + stateTimeline.withDescription("postgres: shared_buffers = 4096MB          mariadb: innodb_buffer_pool_size = 8192MB")
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
@@ -5317,49 +5318,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
-              elasticsearch.withAlias('{{field}} [GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-
-              ])
-
-              + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
               elasticsearch.withAlias('VMs #')
 
               + elasticsearch.withBucketAggs([
@@ -5388,7 +5346,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:240 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('J')
+              + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp')
 
               ////
@@ -5875,50 +5833,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ////
 
-
-              elasticsearch.withAlias('{{field}} [GB]')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('scale')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + elasticsearch.withHide(false)
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Cache')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory working set bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('2')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-                elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('VM Memory Max Usage Bytes')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('3')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value/1000000000')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max'),
-
-              ])
-
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
-              + elasticsearch.withTimeField('timestamp'),
-
-              ////
-
               elasticsearch.withAlias('VMs #')
 
               + elasticsearch.withBucketAggs([
@@ -5947,7 +5861,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('J')
+              + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp')
 
               ////
