@@ -1029,7 +1029,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.gridPos.withH(15)
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
-            + stateTimeline.gridPos.withY(54)
+            + stateTimeline.gridPos.withY(67)
 
             + stateTimeline.withId(115)
             + stateTimeline.withInterval('1d')
