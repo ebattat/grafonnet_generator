@@ -1911,60 +1911,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.options.tooltip.withMode('single')
 
             + g.panel.stateTimeline.withTargets([
-              elasticsearch.withAlias('{{term Run.keyword}} : {{term Threads}}th : 1 {{term kind.keyword}}')
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('Run.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('2')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-                elasticsearch.bucketAggs.Terms.withField('Threads')
-                + elasticsearch.bucketAggs.Terms.withId('4')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('5')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withMinDocCount('0')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withTimeZone('utc')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withTrimEdges('0')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Resp')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
-
-
-              ])
-
-              +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:$kind AND Run:$vdbench_type AND ocp_version:$ocp_version")
-              +elasticsearch.withRefId('A')
-              +elasticsearch.withTimeField('timestamp'),
-
-
-
-            ////
 
              elasticsearch.withAlias('{{field}} [GB]: 1 vm')
 
@@ -2009,7 +1955,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               +elasticsearch.withQuery("!SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version")
-              +elasticsearch.withRefId('B')
+              +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -2066,7 +2012,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               +elasticsearch.withQuery("SCALE AND !Run.keyword='fillup' AND kind:'vm' AND Run:$vdbench_type AND ocp_version:$ocp_version")
-              +elasticsearch.withRefId('C')
+              +elasticsearch.withRefId('B')
               +elasticsearch.withTimeField('timestamp'),
 
               ////
