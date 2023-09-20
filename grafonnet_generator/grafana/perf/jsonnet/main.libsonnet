@@ -214,7 +214,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
     stateTimeline.new('Product Versions')
 
 
-      + stateTimeline.withDescription("rc=0/ ec=00")
+      + stateTimeline.withDescription("OVN - 09/19")
 
       + stateTimeline.queryOptions.withDatasource('Elasticsearch-ci-status')
       + stateTimeline.standardOptions.color.withFixedColor('#132dc3')
@@ -450,9 +450,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
         + g.panel.row.withPanels([
 
           g.panel.stateTimeline.new('HammerDB KTPM')
-            + stateTimeline.withDescription("postgres: shared_buffers = 4096MB \n
-                                             mariadb: innodb_buffer_pool_size = 8192MB")
-
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
@@ -570,8 +567,11 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ]),
+
           ////
+
           g.panel.stateTimeline.new('HammerDB VM Memory')
+            + stateTimeline.withDescription("postgres: shared_buffers = 4GB \n mariadb: innodb_buffer_pool_size = 8GB")
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
