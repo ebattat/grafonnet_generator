@@ -451,6 +451,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
           g.panel.stateTimeline.new('HammerDB KTPM')
             + stateTimeline.withDescription("postgres: shared_buffers = 4096MB
+
                                              mariadb: innodb_buffer_pool_size = 8192MB")
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
