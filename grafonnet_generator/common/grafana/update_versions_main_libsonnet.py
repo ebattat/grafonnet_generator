@@ -15,7 +15,7 @@ class UpdateGrafanaLastValueMappings:
     """
     # Prevent error messages from being saved instead of versions in case of a connection issue
     MAX_VERSION_LEN = 20
-    LAST_ES_FETCH_DAYS = 30
+    LAST_ES_FETCH_DAYS = 14
 
     def __init__(self, main_libsonnet_path: str):
         # Stamp start/ end value mapping for extract value mapping
