@@ -122,7 +122,7 @@
       },
       {
          "datasource": "Elasticsearch-ci-status",
-         "description": "rc=0/ ec=00",
+         "description": "OVN - 09/19",
          "fieldConfig": {
             "defaults": {
                "color": {
@@ -1026,7 +1026,7 @@
          "panels": [
             {
                "datasource": "Elasticsearch-hammerdb-results",
-               "description": "postgres: shared_buffers = 4096MB \n\n                                             mariadb: innodb_buffer_pool_size = 8192MB",
+               "description": "\n                                             postgres: shared_buffers = 4096MB \n\n                                             mariadb: innodb_buffer_pool_size = 8192MB\n                                             ",
                "fieldConfig": {
                   "defaults": {
                      "color": {
