@@ -1026,7 +1026,7 @@
          "panels": [
             {
                "datasource": "Elasticsearch-hammerdb-results",
-               "description": "postgres: shared_buffers = 4096MB\nmariadb: innodb_buffer_pool_size = 8192MB",
+               "description": "\n                                             postgres: shared_buffers = 4096MB\n                                             mariadb: innodb_buffer_pool_size = 8192MB\n                                            ",
                "fieldConfig": {
                   "defaults": {
                      "color": {
