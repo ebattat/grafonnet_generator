@@ -15,7 +15,7 @@ class UpdateGrafanaLastValueMappings:
     """
     # Prevent error messages from being saved instead of versions in case of a connection issue
     MAX_VERSION_LEN = 20
-    LAST_ES_FETCH_DAYS = 30
+    LAST_ES_FETCH_DAYS = 14
 
     def __init__(self, main_libsonnet_path: str):
         # Stamp start/ end value mapping for extract value mapping
@@ -48,7 +48,7 @@ class UpdateGrafanaLastValueMappings:
             for version, value in data['_source'].items():
                 if version in display_versions and value not in new_versions.values() and len(value) < self.MAX_VERSION_LEN:
                     # Display only numbers in the Grafana panel, removing characters
-                    new_versions[value.replace(".", "").replace("-", "").replace("rc", "").replace("ec", "").replace("fc", "")] = value
+                    new_versions[value.translate(str.maketrans('', '', '.-rcef'))] = value
 
         return new_versions
 
