@@ -571,7 +571,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ////
 
           g.panel.stateTimeline.new('HammerDB VM Memory')
-            + stateTimeline.withDescription("postgres: shared_buffers = 4GB \n\nmariadb: innodb_buffer_pool_size = 8GB")
+
+            + stateTimeline.withDescription("MariaDB: innodb_buffer_pool_size = 8GB \n\nPostgreSQL: shared_buffers = 4GB")
 
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
