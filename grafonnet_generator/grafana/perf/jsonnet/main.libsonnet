@@ -450,7 +450,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
         + g.panel.row.withPanels([
 
           g.panel.stateTimeline.new('HammerDB KTPM')
-            + stateTimeline.withDescription("postgres: shared_buffers = 4096MB \n mariadb: innodb_buffer_pool_size = 8192MB")
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
@@ -572,7 +571,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ////
 
           g.panel.stateTimeline.new('HammerDB VM Memory')
-            + stateTimeline.withDescription("postgres: shared_buffers = 4GB \n mariadb: innodb_buffer_pool_size = 8GB")
+            + stateTimeline.withDescription("postgres: shared_buffers = 4GB \nmariadb: innodb_buffer_pool_size = 8GB")
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-hammerdb-results')
 
             + stateTimeline.standardOptions.color.withMode('thresholds')
