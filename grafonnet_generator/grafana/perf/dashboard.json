@@ -4415,7 +4415,7 @@
                      "metrics": [
                         {
                            "field": "max_time_op",
-                           "id": "6",
+                           "id": "1",
                            "settings": {
                               "script": "_value*1000"
                            },
