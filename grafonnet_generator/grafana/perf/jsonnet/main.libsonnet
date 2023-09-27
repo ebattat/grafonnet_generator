@@ -3503,7 +3503,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('max_time_op')
+                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('avg_time_op')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value*1000')
                 + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
