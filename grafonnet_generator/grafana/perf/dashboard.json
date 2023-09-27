@@ -4417,7 +4417,7 @@
                            "field": "avg_time_op",
                            "id": "1",
                            "settings": {
-                              "script": "_value*1000"
+                              "script": "_value*1000000"
                            },
                            "type": "avg"
                         }
