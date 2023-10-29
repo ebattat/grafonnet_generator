@@ -6586,7 +6586,7 @@
                            "type": "min"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "A",
                      "timeField": "timestamp"
                   },
