@@ -8776,12 +8776,12 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "scale:120",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' ",
                      "refId": "A",
                      "timeField": "timestamp"
                   }
                ],
-               "title": "Windows artifacts",
+               "title": "Windows Server 2019 artifacts",
                "transformations": [
                   {
                      "id": "organize",
