@@ -6624,7 +6624,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "B",
                      "timeField": "timestamp"
                   },
@@ -6669,7 +6669,7 @@
                            "type": "percentiles"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "C",
                      "timeField": "timestamp"
                   },
@@ -6718,7 +6718,7 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "D",
                      "timeField": "timestamp"
                   },
@@ -6754,7 +6754,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "E",
                      "timeField": "timestamp"
                   },
@@ -6790,7 +6790,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "F",
                      "timeField": "timestamp"
                   },
@@ -6826,7 +6826,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "G",
                      "timeField": "timestamp"
                   },
@@ -6862,7 +6862,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "H",
                      "timeField": "timestamp"
                   },
@@ -6896,7 +6896,7 @@
                            "type": "count"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "I",
                      "timeField": "timestamp"
                   }
@@ -7030,7 +7030,7 @@
                            "type": "max"
                         }
                      ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "A",
                      "timeField": "timestamp"
                   }
@@ -8776,7 +8776,7 @@
                            "type": "avg"
                         }
                      ],
-                     "query": "scale:120 AND vm_os_version:'windows_server_2019' ",
+                     "query": "scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version",
                      "refId": "A",
                      "timeField": "timestamp"
                   }
