@@ -7613,7 +7613,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
               ])
-              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' ")
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
