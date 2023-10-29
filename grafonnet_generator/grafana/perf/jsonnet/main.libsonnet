@@ -5581,7 +5581,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('B')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5618,7 +5618,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('C')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5662,7 +5662,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('D')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5700,7 +5700,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('E')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5736,7 +5736,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('F')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5772,7 +5772,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('G')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5807,7 +5807,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('H')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5840,7 +5840,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('I')
               + elasticsearch.withTimeField('timestamp')
 
@@ -5962,7 +5962,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
 
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp'),
@@ -7103,7 +7103,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
               ])
-              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' ")
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' AND ocp_version:$ocp_version")
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
