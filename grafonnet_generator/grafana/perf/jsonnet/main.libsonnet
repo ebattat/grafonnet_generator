@@ -5963,6 +5963,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
+
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp'),
 
@@ -5970,6 +5971,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
             ])
+
 
 
 
@@ -6980,7 +6982,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
           //////////////////
 
-          g.panel.table.new("Windows artifacts")
+          g.panel.table.new("Windows Server 2019 artifacts")
           + g.panel.table.queryOptions.withDatasource('Elasticsearch-windows-results')
           + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
           + g.panel.table.standardOptions.withDecimals(1)
@@ -7101,7 +7103,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
               ])
-              + elasticsearch.withQuery("scale:120")
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows_server_2019' ")
               + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
             ])
