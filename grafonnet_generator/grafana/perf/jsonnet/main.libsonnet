@@ -815,7 +815,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp'),
 
@@ -873,7 +873,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('B')
               +elasticsearch.withTimeField('timestamp')
 
@@ -987,7 +987,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp')
 
@@ -7682,7 +7682,198 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
           ]),
+     //////////////////
 
+          g.panel.table.new("Windows11 artifacts")
+          + g.panel.table.queryOptions.withDatasource('Elasticsearch-windows-results')
+          + g.panel.table.fieldConfig.defaults.thresholds.withMode('thresholds')
+          + g.panel.table.standardOptions.withDecimals(1)
+
+          + g.panel.table.panelOptions.withLinks([
+              g.panel.table.link.withTargetBlank(true)
+              + g.panel.table.link.withTitle('link')
+              + g.panel.table.link.withUrl('${__data.fields[\"run_artifacts_url.keyword\"]}')
+
+          ])
+
+          + g.panel.table.fieldConfig.defaults.withMappings([])
+            + g.panel.table.standardOptions.withMin(0)
+            + g.panel.table.fieldConfig.defaults.thresholds.withMode('percentage')
+            + stateTimeline.fieldConfig.defaults.thresholds.withSteps([
+              stateTimeline.thresholdStep.withColor('semi-dark-red'),
+
+              stateTimeline.thresholdStep.withColor('light-orange')
+              + stateTimeline.thresholdStep.withValue(50),
+
+              stateTimeline.thresholdStep.withColor('super-light-green')
+              + stateTimeline.thresholdStep.withValue(80),
+
+              stateTimeline.thresholdStep.withColor('dark-green')
+              + stateTimeline.thresholdStep.withValue(90),
+
+              stateTimeline.thresholdStep.withColor('dark-blue')
+              + stateTimeline.thresholdStep.withValue(100)
+
+            ])
+            + g.panel.table.fieldConfig.withOverrides([
+
+              g.panel.table.fieldOverride.byName.new('ci_date.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
+
+              g.panel.table.fieldOverride.byName.new('kind.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
+
+              g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
+
+              g.panel.table.fieldOverride.byName.new('Average')
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
+
+              g.panel.table.fieldOverride.byName.new('Run.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
+
+              g.panel.table.fieldOverride.byName.new('Threads')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
+
+            ])
+
+            + g.panel.table.gridPos.withH(5)
+            + g.panel.table.gridPos.withW(24)
+            + g.panel.table.gridPos.withX(0)
+            + g.panel.table.gridPos.withY(102)
+
+            + g.panel.table.withId(194)
+            + g.panel.table.withInterval('1d')
+
+            + g.panel.table.options.footer.TableFooterOptions.withFields('')
+            + g.panel.table.options.footer.TableFooterOptions.withReducer('sum')
+            + g.panel.table.options.footer.TableFooterOptions.withShow(false)
+            + g.panel.table.options.withShowHeader(true)
+            + g.panel.table.options.sortBy.withDesc(true)
+            + g.panel.table.options.sortBy.withDesc('ci_date.keyword')
+
+            + g.panel.table.withPluginVersion()
+
+            + g.panel.stateTimeline.withTargets([
+              elasticsearch.withAlias('')
+
+              + elasticsearch.withBucketAggs([
+
+                elasticsearch.bucketAggs.Terms.withField('ci_date.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('8')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('9')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.Terms.withField('scale')
+                + elasticsearch.bucketAggs.Terms.withId('10')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+                elasticsearch.bucketAggs.DateHistogram.withField('run_artifacts_url.keyword')
+                + elasticsearch.bucketAggs.DateHistogram.withId('11')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
+              ])
+
+              + elasticsearch.withMetrics([
+                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('Rate')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
+                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
+
+
+              ])
+              + elasticsearch.withQuery("scale:120 AND vm_os_version:'windows11' ")
+              + elasticsearch.withRefId('A')
+              + elasticsearch.withTimeField('timestamp')
+            ])
+            + stateTimeline.withTransformations([
+              stateTimeline.transformation.withId('organize')
+                + stateTimeline.transformation.withOptions({
+                "excludeByName": {
+                  "Average": true
+                },
+                "indexByName": {},
+                "renameByName": {}
+              })
+
+
+
+
+
+
+
+            ]),
+
+          /////////////
+
+          g.panel.text.new('')
+
+          + g.panel.text.gridPos.withH(4)
+          + g.panel.text.gridPos.withW(5)
+          + g.panel.text.gridPos.withX(19)
+          + g.panel.text.gridPos.withY(107)
+
+          + g.panel.text.withId('189')
+          + g.panel.text.withDatasource('Elasticsearch-ci-status')
+
+          + g.panel.text.panelOptions.withLinks([
+              g.panel.text.link.withTargetBlank(true)
+              + g.panel.text.link.withTitle('PerfCI')
+              + g.panel.text.link.withUrl('https://github.com/redhat-performance/benchmark-runner/actions')
+
+          ])
+
+          + g.panel.text.options.withContent('![Cloud Governance](https://github.com/redhat-performance/benchmark-runner/blob/main/media/benchmark_runner.png?raw=true \"Tooltip Text\")\n')
+          + g.panel.text.options.withMode("markdown")
+
+          + g.panel.text.withPluginVersion()
+
+          + g.panel.text.withTargets([
+            elasticsearch.withAlias('')
+
+            + elasticsearch.withBucketAggs([
+            elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
+            + elasticsearch.bucketAggs.DateHistogram.withId('2')
+            + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
+            + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
+            ])
+
+
+            + elasticsearch.withMetrics([
+              elasticsearch.metrics.Count.withId('1')
+              + elasticsearch.metrics.Count.withType('count')
+
+            ])
+
+            + elasticsearch.withQuery('')
+            + elasticsearch.withRefId('A')
+            + elasticsearch.withTimeField('timestamp')
+
+
+          ]),
     ////////////////////////////////////////////
 
 
