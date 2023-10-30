@@ -9413,6 +9413,286 @@
                ],
                "title": "",
                "type": "text"
+            },
+            {
+               "datasource": "Elasticsearch-windows-results",
+               "desc": "ci_date.keyword",
+               "fieldConfig": {
+                  "defaults": {
+                     "decimals": 1,
+                     "mappings": [ ],
+                     "min": 0,
+                     "thresholds": {
+                        "mode": "percentage",
+                        "steps": [
+                           {
+                              "color": "semi-dark-red"
+                           },
+                           {
+                              "color": "light-orange",
+                              "value": 50
+                           },
+                           {
+                              "color": "super-light-green",
+                              "value": 80
+                           },
+                           {
+                              "color": "dark-green",
+                              "value": 90
+                           },
+                           {
+                              "color": "dark-blue",
+                              "value": 100
+                           }
+                        ]
+                     }
+                  },
+                  "overrides": [
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "ci_date.keyword"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 227
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Date"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "kind.keyword"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 100
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Kind"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "run_artifacts_url.keyword"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 1000
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Artifacts Link"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "Average"
+                        },
+                        "properties": [
+                           {
+                              "id": "displayName",
+                              "value": "Average Rate"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "Run.keyword"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 140
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Run"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "Threads"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 100
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Thread"
+                           }
+                        ]
+                     }
+                  ]
+               },
+               "gridPos": {
+                  "h": 5,
+                  "w": 24,
+                  "x": 0,
+                  "y": 102
+               },
+               "id": 48,
+               "interval": "1d",
+               "links": [
+                  {
+                     "targetBlank": true,
+                     "title": "link",
+                     "url": "${__data.fields[\"run_artifacts_url.keyword\"]}"
+                  }
+               ],
+               "options": {
+                  "footer": {
+                     "fields": [
+                        ""
+                     ],
+                     "reducer": [
+                        "sum"
+                     ],
+                     "show": false
+                  },
+                  "showHeader": true
+               },
+               "pluginVersion": "v10.0.0",
+               "targets": [
+                  {
+                     "alias": "",
+                     "bucketAggs": [
+                        {
+                           "field": "ci_date.keyword",
+                           "id": "8",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "kind.keyword",
+                           "id": "9",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "scale",
+                           "id": "10",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "run_artifacts_url.keyword",
+                           "id": "11",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        }
+                     ],
+                     "metrics": [
+                        {
+                           "field": "Rate",
+                           "id": "1",
+                           "type": "avg"
+                        }
+                     ],
+                     "query": "scale:120 AND vm_os_version:'windows11' ",
+                     "refId": "A",
+                     "timeField": "timestamp"
+                  }
+               ],
+               "title": "Windows11 artifacts",
+               "transformations": [
+                  {
+                     "id": "organize",
+                     "options": {
+                        "excludeByName": {
+                           "Average": true
+                        },
+                        "indexByName": { },
+                        "renameByName": { }
+                     }
+                  }
+               ],
+               "type": "table"
+            },
+            {
+               "datasource": "Elasticsearch-ci-status",
+               "gridPos": {
+                  "h": 4,
+                  "w": 5,
+                  "x": 19,
+                  "y": 107
+               },
+               "id": 49,
+               "links": [
+                  {
+                     "targetBlank": true,
+                     "title": "PerfCI",
+                     "url": "https://github.com/redhat-performance/benchmark-runner/actions"
+                  }
+               ],
+               "options": {
+                  "content": "![Cloud Governance](https://github.com/redhat-performance/benchmark-runner/blob/main/media/benchmark_runner.png?raw=true \"Tooltip Text\")\n",
+                  "mode": "markdown"
+               },
+               "pluginVersion": "v10.0.0",
+               "targets": [
+                  {
+                     "alias": "",
+                     "bucketAggs": [
+                        {
+                           "field": "timestamp",
+                           "id": "2",
+                           "settings": {
+                              "interval": "auto"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "metrics": [
+                        {
+                           "id": "1",
+                           "type": "count"
+                        }
+                     ],
+                     "query": "",
+                     "refId": "A",
+                     "timeField": "timestamp"
+                  }
+               ],
+               "title": "",
+               "type": "text"
             }
          ],
          "title": "Artifacts",
