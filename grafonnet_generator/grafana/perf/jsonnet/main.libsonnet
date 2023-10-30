@@ -815,7 +815,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp'),
 
@@ -873,7 +873,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('B')
               +elasticsearch.withTimeField('timestamp')
 
@@ -987,7 +987,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp')
 
