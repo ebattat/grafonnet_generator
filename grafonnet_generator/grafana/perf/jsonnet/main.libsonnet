@@ -4914,16 +4914,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
 
-
-
-
-
-
-
-
-
-
-
         //////////////////////////////////////////////////////
 
 
@@ -5158,7 +5148,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.standardOptions.withUnit('none')
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(2)
+            + stateTimeline.gridPos.withH(3)
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
             + stateTimeline.gridPos.withY(187)
