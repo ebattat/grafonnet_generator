@@ -8261,50 +8261,6 @@
                               "value": "Artifacts Link"
                            }
                         ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Average"
-                        },
-                        "properties": [
-                           {
-                              "id": "displayName",
-                              "value": "Average Rate"
-                           }
-                        ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Run.keyword"
-                        },
-                        "properties": [
-                           {
-                              "id": "custom.width",
-                              "value": 140
-                           },
-                           {
-                              "id": "displayName",
-                              "value": "Run"
-                           }
-                        ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Threads"
-                        },
-                        "properties": [
-                           {
-                              "id": "custom.width",
-                              "value": 100
-                           },
-                           {
-                              "id": "displayName",
-                              "value": "Thread"
-                           }
-                        ]
                      }
                   ]
                },
@@ -8453,7 +8409,7 @@
                         "properties": [
                            {
                               "id": "custom.width",
-                              "value": 100
+                              "value": 227
                            },
                            {
                               "id": "displayName",
@@ -8469,7 +8425,7 @@
                         "properties": [
                            {
                               "id": "custom.width",
-                              "value": 50
+                              "value": 100
                            },
                            {
                               "id": "displayName",
@@ -8485,7 +8441,7 @@
                         "properties": [
                            {
                               "id": "custom.width",
-                              "value": 50
+                              "value": 100
                            },
                            {
                               "id": "displayName",
