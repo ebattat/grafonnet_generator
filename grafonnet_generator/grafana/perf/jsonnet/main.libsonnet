@@ -6858,27 +6858,24 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + g.panel.table.fieldConfig.withOverrides([
 
               g.panel.table.fieldOverride.byName.new('ci_date.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
               g.panel.table.fieldOverride.byName.new('kind.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',50)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
+
+              g.panel.table.fieldOverride.byName.new('scale')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',50)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','Scale'),
+
+              g.panel.table.fieldOverride.byName.new('vm_os_version.keyword')
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',200)
+              + g.panel.table.fieldOverride.byName.withProperty('displayName','OS Version'),
 
               g.panel.table.fieldOverride.byName.new('run_artifacts_url.keyword')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
-
-              g.panel.table.fieldOverride.byName.new('Average')
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
-
-              g.panel.table.fieldOverride.byName.new('Run.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
-
-              g.panel.table.fieldOverride.byName.new('Threads')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
 
             ])
 
@@ -6928,8 +6925,16 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 + elasticsearch.bucketAggs.Terms.settings.withSize('10')
                 + elasticsearch.bucketAggs.Terms.withType('terms'),
 
+                elasticsearch.bucketAggs.Terms.withField('vm_os_version.keyword')
+                + elasticsearch.bucketAggs.Terms.withId('11')
+                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
+                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
+                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
+                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
+                + elasticsearch.bucketAggs.Terms.withType('terms'),
+
                 elasticsearch.bucketAggs.DateHistogram.withField('run_artifacts_url.keyword')
-                + elasticsearch.bucketAggs.DateHistogram.withId('11')
+                + elasticsearch.bucketAggs.DateHistogram.withId('12')
                 + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
                 + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
                 + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
@@ -6958,11 +6963,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
                 "indexByName": {},
                 "renameByName": {}
               })
-
-
-
-
-
 
 
             ]),
