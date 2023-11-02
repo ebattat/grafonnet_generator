@@ -6561,11 +6561,22 @@
                "pluginVersion": "v10.0.0",
                "targets": [
                   {
-                     "alias": "Min",
+                     "alias": "Min: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
                            "field": "scale",
                            "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "vm_os_version.keyword",
+                           "id": "4",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -6599,11 +6610,75 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "Max",
+                     "alias": "",
                      "bucketAggs": [
                         {
                            "field": "scale",
                            "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "vm_os_version.keyword",
+                           "id": "4",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "timestamp",
+                           "id": "2",
+                           "settings": {
+                              "interval": "auto"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "hide": false,
+                     "metrics": [
+                        {
+                           "field": "bootstorm_time",
+                           "id": "1",
+                           "settings": {
+                              "percents": [
+                                 "50",
+                                 "90"
+                              ],
+                              "script": "_value/1000"
+                           },
+                           "type": "percentiles"
+                        }
+                     ],
+                     "query": "scale:120 AND ocp_version:$ocp_version",
+                     "refId": "C",
+                     "timeField": "timestamp"
+                  },
+                  {
+                     "alias": "Max: {{term vm_os_version.keyword}}",
+                     "bucketAggs": [
+                        {
+                           "field": "scale",
+                           "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "vm_os_version.keyword",
+                           "id": "4",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -6637,7 +6712,7 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "",
+                     "alias": "VMs #: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
                            "field": "scale",
@@ -6651,235 +6726,8 @@
                            "type": "terms"
                         },
                         {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "bootstorm_time",
-                           "id": "1",
-                           "settings": {
-                              "percents": [
-                                 "25",
-                                 "50",
-                                 "75",
-                                 "95",
-                                 "99"
-                              ],
-                              "script": "_value/1000"
-                           },
-                           "type": "percentiles"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "C",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "AVG. 40 vms {{term node.keyword}}",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "node.keyword",
+                           "field": "vm_os_version.keyword",
                            "id": "4",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "asc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "bootstorm_time",
-                           "id": "1",
-                           "settings": {
-                              "script": "_value/1000"
-                           },
-                           "type": "avg"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "D",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "%CPU [240 cores]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "total_CPU",
-                           "id": "1",
-                           "settings": { },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "E",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "%CPU worker-0 [80 cores]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-0_CPU",
-                           "id": "1",
-                           "settings": { },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "F",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "%CPU worker-1 [80 cores]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-1_CPU",
-                           "id": "1",
-                           "settings": { },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "G",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "%CPU worker-2 [80 cores]",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
-                           "field": "timestamp",
-                           "id": "2",
-                           "settings": {
-                              "interval": "auto"
-                           },
-                           "type": "date_histogram"
-                        }
-                     ],
-                     "hide": false,
-                     "metrics": [
-                        {
-                           "field": "worker-2_CPU",
-                           "id": "1",
-                           "settings": { },
-                           "type": "max"
-                        }
-                     ],
-                     "query": "scale:120 AND ocp_version:$ocp_version",
-                     "refId": "H",
-                     "timeField": "timestamp"
-                  },
-                  {
-                     "alias": "VMs #",
-                     "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -6909,7 +6757,7 @@
                      "timeField": "timestamp"
                   }
                ],
-               "title": "120 Windows Server 2019 VMs virtio (Sec)",
+               "title": "120 Windows VMs virtio (Sec)",
                "type": "state-timeline"
             },
             {
@@ -6997,11 +6845,22 @@
                "pluginVersion": "v10.0.0",
                "targets": [
                   {
-                     "alias": "{{field}} [GB]",
+                     "alias": "{{field}} [GB]: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
                            "field": "scale",
                            "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "vm_os_version.keyword",
+                           "id": "4",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
@@ -7043,7 +6902,7 @@
                      "timeField": "timestamp"
                   }
                ],
-               "title": "120 Windows Server 2019 VM Memory",
+               "title": "120 Windows VM Memory",
                "type": "state-timeline"
             }
          ],
