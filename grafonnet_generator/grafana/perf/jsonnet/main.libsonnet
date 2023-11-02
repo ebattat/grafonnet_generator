@@ -5695,7 +5695,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.standardOptions.withUnit('none')
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(7)
+            + stateTimeline.gridPos.withH(5)
+
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
             + stateTimeline.gridPos.withY(206)
@@ -5808,7 +5809,8 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.standardOptions.withUnit('none')
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(7)
+            + stateTimeline.gridPos.withH(9)
+
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
             + stateTimeline.gridPos.withY(206)
