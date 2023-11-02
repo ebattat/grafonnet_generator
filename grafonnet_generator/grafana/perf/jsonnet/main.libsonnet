@@ -5600,7 +5600,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('C')
+              + elasticsearch.withRefId('B')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
@@ -5643,10 +5643,82 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('B')
+              + elasticsearch.withRefId('C')
               + elasticsearch.withTimeField('timestamp'),
 
               ////
+
+
+            ]),
+            ////////////////////////
+
+            g.panel.stateTimeline.new('')
+            + stateTimeline.queryOptions.withDatasource('Elasticsearch-windows-results')
+            + g.panel.stateTimeline.withDescription('Time till VM Login - Lower is better')
+
+            + stateTimeline.standardOptions.color.withMode('thresholds')
+            + stateTimeline.fieldConfig.defaults.custom.withFillOpacity(77)
+            + stateTimeline.fieldConfig.defaults.custom.withLineWidth(0)
+
+            + stateTimeline.fieldConfig.defaults.withDecimals(1)
+            + stateTimeline.fieldConfig.defaults.withMappings([
+              stateTimeline.valueMapping.ValueMap.withOptions(
+                {
+                  "0": {
+                  "color": "transparent",
+                  "index": 0,
+                  "text": "."
+                  }
+                }
+              )
+              + stateTimeline.valueMapping.ValueMap.withType('value')
+
+            ])
+            + stateTimeline.standardOptions.withMax(-1)
+            + stateTimeline.fieldConfig.defaults.thresholds.withMode('percentage')
+            + stateTimeline.fieldConfig.defaults.thresholds.withSteps([
+              stateTimeline.thresholdStep.withColor('red'),
+
+              stateTimeline.thresholdStep.withColor('semi-dark-orange')
+              + stateTimeline.thresholdStep.withValue(50),
+
+              stateTimeline.thresholdStep.withColor('super-light-green')
+              + stateTimeline.thresholdStep.withValue(80),
+
+              stateTimeline.thresholdStep.withColor('dark-green')
+              + stateTimeline.thresholdStep.withValue(90),
+
+              stateTimeline.thresholdStep.withColor('dark-blue')
+              + stateTimeline.thresholdStep.withValue(100)
+
+            ])
+            + stateTimeline.standardOptions.withUnit('none')
+            + stateTimeline.fieldConfig.withOverrides([])
+
+            + stateTimeline.gridPos.withH(19)
+            + stateTimeline.gridPos.withW(24)
+            + stateTimeline.gridPos.withX(0)
+            + stateTimeline.gridPos.withY(206)
+
+            + stateTimeline.withId(193)
+            + stateTimeline.withInterval('1d')
+
+            + stateTimeline.panelOptions.withLinks([
+              stateTimeline.link.withTargetBlank(true)
+              + stateTimeline.link.withTitle('artifacts link')
+              + stateTimeline.link.withUrl('https://grafana-perf-chmf648sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=44')
+
+            ])
+
+            + stateTimeline.options.withAlignValue('center')
+            + stateTimeline.options.legend.withDisplayMode('hidden')
+            + stateTimeline.options.legend.withPlacement('bottom')
+            + stateTimeline.options.withMergeValues(value = false)
+            + stateTimeline.options.withRowHeight(value = 0.9)
+            + stateTimeline.options.withShowValue('always')
+            + stateTimeline.options.tooltip.withMode('single')
+
+            + g.panel.stateTimeline.withTargets([
 
               elasticsearch.withAlias('VMs #: {{term vm_os_version.keyword}}')
 
@@ -5684,7 +5756,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               ])
 
               + elasticsearch.withQuery('scale:120 AND ocp_version:$ocp_version')
-              + elasticsearch.withRefId('I')
+              + elasticsearch.withRefId('A')
               + elasticsearch.withTimeField('timestamp')
 
               ////
@@ -5692,7 +5764,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
             ]),
             ////////////////////////
-
 
             g.panel.stateTimeline.new('120 Windows VM Memory')
             + stateTimeline.queryOptions.withDatasource('Elasticsearch-windows-results')
