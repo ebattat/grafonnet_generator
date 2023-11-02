@@ -4914,16 +4914,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
 
 
-
-
-
-
-
-
-
-
-
-
         //////////////////////////////////////////////////////
 
 
@@ -4981,7 +4971,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.standardOptions.withUnit('none')
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(19)
+            + stateTimeline.gridPos.withH(10)
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
             + stateTimeline.gridPos.withY(187)
@@ -5158,7 +5148,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + stateTimeline.standardOptions.withUnit('none')
             + stateTimeline.fieldConfig.withOverrides([])
 
-            + stateTimeline.gridPos.withH(5)
+            + stateTimeline.gridPos.withH(3)
             + stateTimeline.gridPos.withW(24)
             + stateTimeline.gridPos.withX(0)
             + stateTimeline.gridPos.withY(187)
@@ -6680,17 +6670,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
               + g.panel.table.fieldOverride.byName.withProperty('custom.width',1000)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Artifacts Link'),
 
-              g.panel.table.fieldOverride.byName.new('Average')
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Average Rate'),
-
-              g.panel.table.fieldOverride.byName.new('Run.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',140)
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Run'),
-
-              g.panel.table.fieldOverride.byName.new('Threads')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
-              + g.panel.table.fieldOverride.byName.withProperty('displayName','Thread')
-
 
             ])
 
@@ -6814,15 +6793,15 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
             + g.panel.table.fieldConfig.withOverrides([
 
               g.panel.table.fieldOverride.byName.new('ci_date.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',227)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Date'),
 
               g.panel.table.fieldOverride.byName.new('kind.keyword')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',50)
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Kind'),
 
               g.panel.table.fieldOverride.byName.new('scale')
-              + g.panel.table.fieldOverride.byName.withProperty('custom.width',50)
+              + g.panel.table.fieldOverride.byName.withProperty('custom.width',100)
               + g.panel.table.fieldOverride.byName.withProperty('displayName','Scale'),
 
               g.panel.table.fieldOverride.byName.new('vm_os_version.keyword')
