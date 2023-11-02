@@ -8473,7 +8473,7 @@
                         "properties": [
                            {
                               "id": "custom.width",
-                              "value": 227
+                              "value": 100
                            },
                            {
                               "id": "displayName",
@@ -8489,11 +8489,43 @@
                         "properties": [
                            {
                               "id": "custom.width",
-                              "value": 100
+                              "value": 50
                            },
                            {
                               "id": "displayName",
                               "value": "Kind"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "scale"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 50
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "Scale"
+                           }
+                        ]
+                     },
+                     {
+                        "matcher": {
+                           "id": "byName",
+                           "options": "vm_os_version.keyword"
+                        },
+                        "properties": [
+                           {
+                              "id": "custom.width",
+                              "value": 200
+                           },
+                           {
+                              "id": "displayName",
+                              "value": "OS Version"
                            }
                         ]
                      },
@@ -8510,50 +8542,6 @@
                            {
                               "id": "displayName",
                               "value": "Artifacts Link"
-                           }
-                        ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Average"
-                        },
-                        "properties": [
-                           {
-                              "id": "displayName",
-                              "value": "Average Rate"
-                           }
-                        ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Run.keyword"
-                        },
-                        "properties": [
-                           {
-                              "id": "custom.width",
-                              "value": 140
-                           },
-                           {
-                              "id": "displayName",
-                              "value": "Run"
-                           }
-                        ]
-                     },
-                     {
-                        "matcher": {
-                           "id": "byName",
-                           "options": "Threads"
-                        },
-                        "properties": [
-                           {
-                              "id": "custom.width",
-                              "value": 100
-                           },
-                           {
-                              "id": "displayName",
-                              "value": "Thread"
                            }
                         ]
                      }
@@ -8625,8 +8613,19 @@
                            "type": "terms"
                         },
                         {
-                           "field": "run_artifacts_url.keyword",
+                           "field": "vm_os_version.keyword",
                            "id": "11",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "run_artifacts_url.keyword",
+                           "id": "12",
                            "settings": {
                               "min_doc_count": "1",
                               "order": "desc",
