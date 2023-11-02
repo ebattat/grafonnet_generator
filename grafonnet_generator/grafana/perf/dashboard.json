@@ -6107,9 +6107,97 @@
                      "query": "scale:240 AND ocp_version:$ocp_version",
                      "refId": "C",
                      "timeField": "timestamp"
+                  }
+               ],
+               "title": "240 Fedora37 VMs(Sec)",
+               "type": "state-timeline"
+            },
+            {
+               "datasource": "Elasticsearch-bootstorm-results",
+               "description": "Time till VM Login - Lower is better",
+               "fieldConfig": {
+                  "defaults": {
+                     "color": {
+                        "mode": "thresholds"
+                     },
+                     "custom": {
+                        "fillOpacity": 77,
+                        "lineWidth": 0
+                     },
+                     "decimals": 1,
+                     "mappings": [
+                        {
+                           "options": {
+                              "0": {
+                                 "color": "transparent",
+                                 "index": 0,
+                                 "text": "."
+                              }
+                           },
+                           "type": "value"
+                        }
+                     ],
+                     "max": -1,
+                     "thresholds": {
+                        "mode": "percentage",
+                        "steps": [
+                           {
+                              "color": "red"
+                           },
+                           {
+                              "color": "semi-dark-orange",
+                              "value": 50
+                           },
+                           {
+                              "color": "super-light-green",
+                              "value": 80
+                           },
+                           {
+                              "color": "dark-green",
+                              "value": 90
+                           },
+                           {
+                              "color": "dark-blue",
+                              "value": 100
+                           }
+                        ]
+                     },
+                     "unit": "none"
                   },
+                  "overrides": [ ]
+               },
+               "gridPos": {
+                  "h": 5,
+                  "w": 24,
+                  "x": 0,
+                  "y": 187
+               },
+               "id": 33,
+               "interval": "1d",
+               "links": [
                   {
-                     "alias": "VMs #",
+                     "targetBlank": true,
+                     "title": "artifacts link",
+                     "url": "https://grafana-perf-chmf648sh776bznl3b.ibm.rhperfscale.org/d/T4775LKnzzmichey/perfci-regression-summary?orgId=1&from=now-45d&to=now&viewPanel=43"
+                  }
+               ],
+               "options": {
+                  "alignValue": "center",
+                  "legend": {
+                     "displayMode": "hidden",
+                     "placement": "bottom"
+                  },
+                  "mergeValues": false,
+                  "rowHeight": 0.90000000000000002,
+                  "showValue": "always",
+                  "tooltip": {
+                     "mode": "single"
+                  }
+               },
+               "pluginVersion": "v10.0.0",
+               "targets": [
+                  {
+                     "alias": "VMs #: Fedora",
                      "bucketAggs": [
                         {
                            "field": "scale",
@@ -6139,11 +6227,11 @@
                         }
                      ],
                      "query": "scale:240 AND ocp_version:$ocp_version",
-                     "refId": "I",
+                     "refId": "A",
                      "timeField": "timestamp"
                   }
                ],
-               "title": "240 Fedora37 VMs(Sec)",
+               "title": "",
                "type": "state-timeline"
             },
             {
@@ -6206,7 +6294,7 @@
                   "x": 0,
                   "y": 187
                },
-               "id": 33,
+               "id": 34,
                "interval": "1d",
                "links": [
                   {
@@ -6340,7 +6428,7 @@
                   "x": 0,
                   "y": 206
                },
-               "id": 34,
+               "id": 35,
                "interval": "1d",
                "links": [
                   {
@@ -6579,7 +6667,7 @@
                   "x": 0,
                   "y": 206
                },
-               "id": 35,
+               "id": 36,
                "interval": "1d",
                "links": [
                   {
@@ -6712,7 +6800,7 @@
                   "x": 0,
                   "y": 206
                },
-               "id": 36,
+               "id": 37,
                "interval": "1d",
                "links": [
                   {
@@ -6809,7 +6897,7 @@
             "x": 0,
             "y": 21
          },
-         "id": 37,
+         "id": 38,
          "panels": [
             {
                "datasource": "Elasticsearch-hammerdb-results",
@@ -6943,7 +7031,7 @@
                   "x": 0,
                   "y": 22
                },
-               "id": 38,
+               "id": 39,
                "interval": "1d",
                "links": [
                   {
@@ -7188,7 +7276,7 @@
                   "x": 0,
                   "y": 50
                },
-               "id": 39,
+               "id": 40,
                "interval": "1d",
                "links": [
                   {
@@ -7434,7 +7522,7 @@
                   "x": 0,
                   "y": 65
                },
-               "id": 40,
+               "id": 41,
                "interval": "1d",
                "links": [
                   {
@@ -7656,7 +7744,7 @@
                   "x": 0,
                   "y": 75
                },
-               "id": 41,
+               "id": 42,
                "interval": "1d",
                "links": [
                   {
@@ -7818,7 +7906,7 @@
                   "x": 0,
                   "y": 85
                },
-               "id": 42,
+               "id": 43,
                "interval": "1d",
                "links": [
                   {
@@ -7982,7 +8070,7 @@
                   "x": 0,
                   "y": 91
                },
-               "id": 43,
+               "id": 44,
                "links": [
                   {
                      "targetBlank": true,
@@ -8226,7 +8314,7 @@
                   "x": 0,
                   "y": 97
                },
-               "id": 44,
+               "id": 45,
                "links": [
                   {
                      "targetBlank": true,
@@ -8445,7 +8533,7 @@
                   "x": 0,
                   "y": 102
                },
-               "id": 45,
+               "id": 46,
                "interval": "1d",
                "links": [
                   {
@@ -8562,7 +8650,7 @@
                   "x": 19,
                   "y": 107
                },
-               "id": 46,
+               "id": 47,
                "links": [
                   {
                      "targetBlank": true,
