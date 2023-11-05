@@ -39,7 +39,7 @@ jobs:
         echo '>>>>>>>>>>>>>>>>>>>>>>>>>> Start E2E workload: ${{ matrix.workload }} >>>>>>>>>>>>>>>>>>>>>>>>>>'
         WORKLOAD=$(awk -F_ '{print $1"_"$2}' <<< '${{ matrix.workload }}')
         RUN=$(awk -F_ '{print $3}' <<< '${{ matrix.workload }}')
-        if [[ $RUN == 'scale' ]]
+        if [[ "$RUN" == "scale" ]]
         then
             echo SCALE SCALE
             echo WORKLOAD $WORKLOAD
