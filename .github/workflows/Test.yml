@@ -39,10 +39,11 @@ jobs:
         echo '>>>>>>>>>>>>>>>>>>>>>>>>>> Start E2E workload: ${{ matrix.workload }} >>>>>>>>>>>>>>>>>>>>>>>>>>'
         WORKLOAD=$(awk -F_ '{print $1"_"$2}' <<< '${{ matrix.workload }}')
         RUN=$(awk -F_ '{print $3}' <<< '${{ matrix.workload }}')
-        echo workload $workload run $RUN
-        if [[ $RUN == scale ]]
+        if [[ $RUN == 'scale' ]]
         then
             echo SCALE SCALE
+            echo WORKLOAD $WORKLOAD
+            echo RUN $RUN
             # bootstorm_vm_scale: no need redis for synchronization but need SCALE and THREADS_LIMIT
             if [[ '${{ matrix.workload }}' == 'bootstorm_vm_scale' ]]
             then
