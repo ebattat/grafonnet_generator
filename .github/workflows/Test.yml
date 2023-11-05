@@ -40,7 +40,7 @@ jobs:
         WORKLOAD=$(awk -F_ '{print $1"_"$2}' <<< '${{ matrix.workload }}')
         RUN=$(awk -F_ '{print $3}' <<< '${{ matrix.workload }}')
         echo workload $workload run $RUN
-        if [[ '$RUN' == 'scale' ]]
+        if [[ $RUN == scale ]]
         then
             echo SCALE SCALE
             # bootstorm_vm_scale: no need redis for synchronization but need SCALE and THREADS_LIMIT
