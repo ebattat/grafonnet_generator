@@ -37,3 +37,6 @@ jobs:
     - name: ✔️ Run workload ${{ matrix.workload }}
       run: |
         echo '>>>>>>>>>>>>>>>>>>>>>>>>>> Start E2E workload: ${{ matrix.workload }} >>>>>>>>>>>>>>>>>>>>>>>>>>'
+        workload=$(awk -F_ '{print $1"_"$2}' <<< '${{ matrix.workload }}')
+        run=$(awk -F_ '{print $3}' <<< '${{ matrix.workload }}')
+        echo workload $workload run $run
