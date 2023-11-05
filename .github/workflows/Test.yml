@@ -64,4 +64,7 @@ jobs:
               echo windows $WINDOWS_URL            
             fi
         fi
+        else
+          echo not scale
+        fi
         
