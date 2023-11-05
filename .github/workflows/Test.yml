@@ -35,6 +35,8 @@ jobs:
       with:
         python-version: '3.10'
     - name: ✔️ Run workload ${{ matrix.workload }}
+      env:
+        WINDOWS: "WINDOWS10"
       run: |
         echo '>>>>>>>>>>>>>>>>>>>>>>>>>> Start E2E workload: ${{ matrix.workload }} >>>>>>>>>>>>>>>>>>>>>>>>>>'
         WORKLOAD=$(awk -F_ '{print $1"_"$2}' <<< '${{ matrix.workload }}')
@@ -52,7 +54,7 @@ jobs:
             elif [[ "$WORKLOAD" == "windows_vm" ]]
             then
               case "${{ matrix.workload }}" in
-                   "windows_vm_scale_windows10") WINDOWS_URL=$WORKLOAD ;;
+                   "windows_vm_scale_windows10") WINDOWS_URL=$WINDOWS ;;
                    "windows_vm_scale_windows11") WINDOWS_URL=$WORKLOAD ;;
                    "windows_vm_scale_windows_server_2019") WINDOWS_URL=$WORKLOAD ;;
                    "windows_vm_scale_windows_server_2022") WINDOWS_URL=$WORKLOAD ;;
