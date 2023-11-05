@@ -63,8 +63,7 @@ jobs:
               # Warm-up: Load DV for Windows
               echo windows $WINDOWS_URL            
             fi
-        fi
         else
-          echo not scale
+          echo not scale "${{ matrix.workload }}"
         fi
         
