@@ -344,31 +344,6 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
         ////
 
-        elasticsearch.withAlias('Kata rpm')
-          + elasticsearch.withBucketAggs([
-            elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-            + elasticsearch.bucketAggs.DateHistogram.withId('2')
-            + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-            + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-          ])
-
-
-          + elasticsearch.withHide(false)
-
-          + elasticsearch.withMetrics([
-            elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('ci_minutes_time')
-            + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-            + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('(doc["kata_rpm_version.keyword"].value.indexOf(\" \") == -1) ? Integer.parseInt(\"0\"+doc["kata_rpm_version.keyword"].value.replace(\".\",\"\").replace(\"r\",\"\").replace(\"c\",\"\").replace(\"f\",\"\").replace(\"-\",\"\")) : 0')
-            + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
-
-          ])
-
-          + elasticsearch.withQuery('_exists_:kata_rpm_version AND ocp_version:$ocp_version')
-          + elasticsearch.withRefId('F')
-          + elasticsearch.withTimeField('timestamp'),
-
-        ////
-
         elasticsearch.withAlias('ODF op.')
           + elasticsearch.withBucketAggs([
             elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
