@@ -12,6 +12,7 @@ jobs:
 
       - name: Generate grafana dashboard.json using grafonnet container
         run: |
-          echo "$GITHUB_WORKSPACE"
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
           sudo podman run --rm --name run_grafonnet -v "$GITHUB_WORKSPACE"/grafonnet_generator/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
