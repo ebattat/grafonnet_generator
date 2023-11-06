@@ -1,0 +1,16 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  grafonnet_generator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Generate grafana dashboard.json using grafonnet container
+        run: |
+          sudo podman run --rm --name run_grafonnet -v "$GITHUB_WORKSPACE"/grafonnet_generator/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
+
