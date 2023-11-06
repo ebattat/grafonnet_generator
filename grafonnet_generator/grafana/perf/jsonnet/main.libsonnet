@@ -389,7 +389,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('_exists_:odf_version AND ocp_version:$ocp_version')
-          + elasticsearch.withRefId('D')
+          + elasticsearch.withRefId('E')
           + elasticsearch.withTimeField('timestamp'),
 
         ////
@@ -413,7 +413,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('ocp_version:$ocp_version')
-          + elasticsearch.withRefId('E')
+          + elasticsearch.withRefId('F')
           + elasticsearch.withTimeField('timestamp'),
 
         ////
@@ -437,7 +437,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('ocp_version:$ocp_version')
-          + elasticsearch.withRefId('F')
+          + elasticsearch.withRefId('G')
           + elasticsearch.withTimeField('timestamp')
 
       ]),
