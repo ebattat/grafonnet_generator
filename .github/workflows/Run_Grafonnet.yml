@@ -16,5 +16,5 @@ jobs:
           echo '$GITHUB_WORKSPACE'
           echo "$GITHUB_WORKSPACE"
           ls -l "$GITHUB_WORKSPACE"/grafonnet_generator/grafana/perf
-          podman run --rm --name run_grafonnet -v "$GITHUB_WORKSPACE"/grafonnet_generator/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
+          podman run --rm --name run_grafonnet -v $GITHUB_WORKSPACE/grafonnet_generator/grafana/perf:/app --privileged quay.io/ebattat/run_grafonnet:latest
 
