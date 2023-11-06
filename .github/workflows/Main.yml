@@ -20,8 +20,8 @@ jobs:
           ELASTICSEARCH_USER: ${{ secrets.ELASTICSEARCH_USER }}
           ELASTICSEARCH_PASSWORD: ${{ secrets.ELASTICSEARCH_PASSWORD }}
         run: |
-          pip install elasticsearch==7.17.0
-          cd "$GITHUB_WORKSPACE" && PYTHONPATH=. python grafonnet_generator/common/grafana/update_versions_main_libsonnet.py
+          pip install elasticsearch==7.17.6
+          #cd "$GITHUB_WORKSPACE" && PYTHONPATH=. python grafonnet_generator/common/grafana/update_versions_main_libsonnet.py
 
       - name: Generate grafana dashboard.json using grafonnet container
         run: |
