@@ -1,4 +1,4 @@
-name: CI
+name: Run Grafonnet
 
 on:
   workflow_dispatch:
