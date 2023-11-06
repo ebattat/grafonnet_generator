@@ -5,12 +5,12 @@ local stateTimeline = grafonnet.panel.stateTimeline;
 local var = g.dashboard.variable;
 
 
-g.dashboard.new('PerfCI-Regression-Summary-Test')
+g.dashboard.new('PerfCI-Regression-Summary')
 + g.dashboard.time.withFrom('now-45d')
 + g.dashboard.time.withTo('now')
 + g.dashboard.withTimepicker({},)
 + g.dashboard.withTimezone("")
-+ g.dashboard.withUid('LrMyHlzIz')
++ g.dashboard.withUid('T4775LKnzzmichey')
 + g.dashboard.withWeekStart("")
 + g.dashboard.withLiveNow(false)
 
