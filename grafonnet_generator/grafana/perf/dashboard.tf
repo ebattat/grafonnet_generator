@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "jsonnet" {
-  jsonnet_path = "${root.module}/lib:/usr/local/share/jsonnet/grafonnet-lib"
+  jsonnet_path = "${path.cwd}/jsonnet/vendor"
 }
 
 data "jsonnet_file" "dashboard" {
