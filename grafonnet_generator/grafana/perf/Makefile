@@ -3,4 +3,6 @@ apply:
 	@cd jsonnet/ && \
 		/root/go/bin/jb install && \
 		cd ../ && \
+		ls -l && \
+		ls -l jsonnet && \
 		terraform apply -auto-approve | python3 extract_dashboard.py > dashboard.json
