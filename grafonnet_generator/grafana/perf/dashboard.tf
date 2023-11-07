@@ -12,7 +12,8 @@ provider "jsonnet" {
 }
 
 data "jsonnet_file" "dashboard" {
-  source = "jsonnet/main.libsonnet"
+  source = "${path.cwd}/jsonnet/main.libsonnet"
+  jsonnet_path = "${path.cwd}/jsonnet/vendor"
 }
 
 output "dashboard" {
