@@ -760,6 +760,10 @@
                            "index": 181,
                            "text": "4.14.0-2401"
                         },
+                        "41402419": {
+                           "index": 182,
+                           "text": "4.14.0-2419"
+                        },
                         "41404": {
                            "index": 165,
                            "text": "4.14.0-rc.4"
@@ -960,7 +964,7 @@
                   }
                ],
                "query": "_exists_:cnv_version AND ocp_version:$ocp_version",
-               "refId": "B",
+               "refId": "C",
                "timeField": "timestamp"
             },
             {
@@ -987,7 +991,34 @@
                   }
                ],
                "query": "_exists_:kata_version AND ocp_version:$ocp_version",
-               "refId": "C",
+               "refId": "D",
+               "timeField": "timestamp"
+            },
+            {
+               "alias": "Kata rpm",
+               "bucketAggs": [
+                  {
+                     "field": "timestamp",
+                     "id": "2",
+                     "settings": {
+                        "interval": "auto"
+                     },
+                     "type": "date_histogram"
+                  }
+               ],
+               "hide": false,
+               "metrics": [
+                  {
+                     "field": "ci_minutes_time",
+                     "id": "1",
+                     "settings": {
+                        "script": "Integer.parseInt(\"0\"+doc[\"kata_rpm_version.keyword\"].value.replace(\".\",\"\").replace(\"r\",\"\").replace(\"c\",\"\").replace(\"f\",\"\").replace(\"-\",\"\").replace(\"e\",\"1\").replace(\"c\",\"\").replace(\"r\",\"\"))"
+                     },
+                     "type": "max"
+                  }
+               ],
+               "query": "_exists_:kata_rpm_version AND ocp_version:$ocp_version",
+               "refId": "F",
                "timeField": "timestamp"
             },
             {
@@ -1014,7 +1045,7 @@
                   }
                ],
                "query": "_exists_:odf_version AND ocp_version:$ocp_version",
-               "refId": "D",
+               "refId": "E",
                "timeField": "timestamp"
             },
             {
@@ -1039,7 +1070,7 @@
                   }
                ],
                "query": "ocp_version:$ocp_version",
-               "refId": "E",
+               "refId": "B",
                "timeField": "timestamp"
             },
             {
@@ -1064,7 +1095,7 @@
                   }
                ],
                "query": "ocp_version:$ocp_version",
-               "refId": "F",
+               "refId": "B",
                "timeField": "timestamp"
             }
          ],
