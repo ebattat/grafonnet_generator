@@ -8,7 +8,7 @@ terraform {
 }
 
 provider "jsonnet" {
-  jsonnet_path = "${path.cwd}/jsonnet/vendor"
+  jsonnet_path = "/app/jsonnet/vendor"
 }
 
 data "jsonnet_file" "dashboard" {
