@@ -5,5 +5,6 @@ apply:
 		cd ../ && \
 		ls -l && \
 		ls -l jsonnet && \
-		/root/go/bin/jsonnet -J jsonnet/vendor jsonnet/main.libsonnet
+		terraform apply -auto-approve | python3 extract_dashboard.py > dashboard.json
+    
 

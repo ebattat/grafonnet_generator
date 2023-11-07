@@ -8,11 +8,11 @@ terraform {
 }
 
 provider "jsonnet" {
-  jsonnet_path = "/app/jsonnet/vendor"
+  jsonnet_path = "jsonnet/vendor"
 }
 
 data "jsonnet_file" "dashboard" {
-  source = "${path.cwd}/jsonnet/main.libsonnet"
+  source = "jsonnet/main.libsonnet"
 }
 
 output "dashboard" {
