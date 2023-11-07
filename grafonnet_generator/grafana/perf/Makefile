@@ -6,5 +6,3 @@ apply:
 		ls -l && \
 		ls -l jsonnet && \
 		terraform apply -auto-approve | python3 extract_dashboard.py > dashboard.json
-    
-
