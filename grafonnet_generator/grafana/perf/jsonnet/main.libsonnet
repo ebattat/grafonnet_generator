@@ -316,7 +316,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('_exists_:cnv_version AND ocp_version:$ocp_version')
-          + elasticsearch.withRefId('C')
+          + elasticsearch.withRefId('B')
           + elasticsearch.withTimeField('timestamp'),
 
         ////
@@ -339,7 +339,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('_exists_:kata_version AND ocp_version:$ocp_version')
-          + elasticsearch.withRefId('D')
+          + elasticsearch.withRefId('C')
           + elasticsearch.withTimeField('timestamp'),
 
         ////
@@ -357,13 +357,13 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           + elasticsearch.withMetrics([
             elasticsearch.metrics.MetricAggregationWithSettings.Max.withField('ci_minutes_time')
             + elasticsearch.metrics.MetricAggregationWithSettings.Max.withId('1')
-            + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('Integer.parseInt(\"0\"+doc["kata_rpm_version.keyword"].value.replace(\".\",\"\").replace(\"r\",\"\").replace(\"c\",\"\").replace(\"f\",\"\").replace(\"-\",\"\").replace(\"e\",\"1\").replace(\"c\",\"\").replace(\"r\",\"\"))')
+            + elasticsearch.metrics.MetricAggregationWithSettings.Max.settings.withScript('(doc["kata_rpm_version.keyword"].value.indexOf(\" \") == -1) ? Integer.parseInt(\"0\"+doc["kata_rpm_version.keyword"].value.replace(\".\",\"\").replace(\"r\",\"\").replace(\"c\",\"\").replace(\"f\",\"\").replace(\"-\",\"\")) : 0')
             + elasticsearch.metrics.MetricAggregationWithSettings.Max.withType('max')
 
           ])
 
           + elasticsearch.withQuery('_exists_:kata_rpm_version AND ocp_version:$ocp_version')
-          + elasticsearch.withRefId('F')
+          + elasticsearch.withRefId('D')
           + elasticsearch.withTimeField('timestamp'),
 
         ////
@@ -410,7 +410,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('ocp_version:$ocp_version')
-          + elasticsearch.withRefId('B')
+          + elasticsearch.withRefId('F')
           + elasticsearch.withTimeField('timestamp'),
         ////
         elasticsearch.withAlias('Ci Status')
@@ -432,7 +432,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
           ])
 
           + elasticsearch.withQuery('ocp_version:$ocp_version')
-          + elasticsearch.withRefId('B')
+          + elasticsearch.withRefId('G')
           + elasticsearch.withTimeField('timestamp')
 
       ]),
