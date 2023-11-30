@@ -815,69 +815,9 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
-              +elasticsearch.withTimeField('timestamp'),
-
-              ////
-
-
-              elasticsearch.withAlias('msg size: {{term read_message_size}} :{{term num_threads}}th: {{term kind.keyword}}')
-
-              + elasticsearch.withBucketAggs([
-                elasticsearch.bucketAggs.Terms.withField('read_message_size')
-                + elasticsearch.bucketAggs.Terms.withId('3')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('asc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
-                elasticsearch.bucketAggs.Terms.withField('num_threads')
-                + elasticsearch.bucketAggs.Terms.withId('4')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('asc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
-                elasticsearch.bucketAggs.Terms.withField('kind.keyword')
-                + elasticsearch.bucketAggs.Terms.withId('5')
-                + elasticsearch.bucketAggs.Terms.settings.withMinDocCount('1')
-                + elasticsearch.bucketAggs.Terms.settings.withOrder('desc')
-                + elasticsearch.bucketAggs.Terms.settings.withOrderBy('_term')
-                + elasticsearch.bucketAggs.Terms.settings.withSize('10')
-                + elasticsearch.bucketAggs.Terms.withType('terms'),
-
-
-                elasticsearch.bucketAggs.DateHistogram.withField('timestamp')
-                + elasticsearch.bucketAggs.DateHistogram.withId('2')
-                + elasticsearch.bucketAggs.DateHistogram.settings.withInterval('auto')
-                + elasticsearch.bucketAggs.DateHistogram.withType('date_histogram')
-
-
-              ])
-
-              + stateTimeline.datasource.withType('elasticsearch')
-              + stateTimeline.datasource.withUid('cd4b9568-576c-4528-b200-89b91a098410')
-
-              + elasticsearch.withHide(false)
-              + elasticsearch.withMetrics([
-                elasticsearch.metrics.MetricAggregationWithSettings.Average.withField('norm_ltcy')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withId('1')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.settings.withScript('_value*8')
-                + elasticsearch.metrics.MetricAggregationWithSettings.Average.withType('avg')
-
-
-              ])
-
-              +elasticsearch.withQuery('_exists_:norm_ltcy AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(8) AND test_type:rr AND norm_ltcy:<1000 AND kind:$kind  AND ocp_version:$ocp_version')
-              +elasticsearch.withRefId('B')
               +elasticsearch.withTimeField('timestamp')
-
-
 
             ]),
 
@@ -987,7 +927,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
               ])
 
-              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind  AND ocp_version:$ocp_version')
+              +elasticsearch.withQuery('_exists_:norm_ops AND read_message_size:(64 OR 1024 OR 8192) AND num_threads:(1 OR 8) AND test_type:stream AND kind:$kind AND ocp_version:$ocp_version')
               +elasticsearch.withRefId('A')
               +elasticsearch.withTimeField('timestamp')
 
