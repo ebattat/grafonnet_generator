@@ -6042,17 +6042,6 @@
                      "alias": "Min",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "timestamp",
                            "id": "2",
                            "settings": {
@@ -6079,17 +6068,6 @@
                   {
                      "alias": "",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "timestamp",
                            "id": "2",
@@ -6122,17 +6100,6 @@
                      "alias": "Max",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "timestamp",
                            "id": "2",
                            "settings": {
@@ -6157,19 +6124,8 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} (min)",
+                     "alias": "{{field}} (min.)",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "timestamp",
                            "id": "2",
@@ -6286,17 +6242,6 @@
                      "alias": "VMs #: Fedora",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "timestamp",
                            "id": "2",
                            "settings": {
@@ -6407,17 +6352,6 @@
                   {
                      "alias": "{{field}} [GB]",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "timestamp",
                            "id": "2",
@@ -6542,17 +6476,6 @@
                      "alias": "Min: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "vm_os_version.keyword",
                            "id": "4",
                            "settings": {
@@ -6590,17 +6513,6 @@
                   {
                      "alias": "",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "vm_os_version.keyword",
                            "id": "4",
@@ -6644,17 +6556,6 @@
                      "alias": "Max: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "vm_os_version.keyword",
                            "id": "4",
                            "settings": {
@@ -6690,19 +6591,8 @@
                      "timeField": "timestamp"
                   },
                   {
-                     "alias": "{{field}} (min)",
+                     "alias": "{{field}} {{term vm_os_version.keyword}} (min.)",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "vm_os_version.keyword",
                            "id": "4",
@@ -6830,17 +6720,6 @@
                      "alias": "VMs #: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
                         {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
-                        {
                            "field": "vm_os_version.keyword",
                            "id": "4",
                            "settings": {
@@ -6962,17 +6841,6 @@
                   {
                      "alias": "{{field}} [GB]: {{term vm_os_version.keyword}}",
                      "bucketAggs": [
-                        {
-                           "field": "scale",
-                           "id": "3",
-                           "settings": {
-                              "min_doc_count": "1",
-                              "order": "desc",
-                              "orderBy": "_term",
-                              "size": "10"
-                           },
-                           "type": "terms"
-                        },
                         {
                            "field": "vm_os_version.keyword",
                            "id": "4",
