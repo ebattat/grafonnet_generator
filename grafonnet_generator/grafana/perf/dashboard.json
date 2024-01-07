@@ -6155,6 +6155,44 @@
                      "query": "scale:240 AND ocp_version:$ocp_version",
                      "refId": "C",
                      "timeField": "timestamp"
+                  },
+                  {
+                     "alias": "{{field}} (min)",
+                     "bucketAggs": [
+                        {
+                           "field": "scale",
+                           "id": "3",
+                           "settings": {
+                              "min_doc_count": "1",
+                              "order": "desc",
+                              "orderBy": "_term",
+                              "size": "10"
+                           },
+                           "type": "terms"
+                        },
+                        {
+                           "field": "timestamp",
+                           "id": "2",
+                           "settings": {
+                              "interval": "auto"
+                           },
+                           "type": "date_histogram"
+                        }
+                     ],
+                     "hide": false,
+                     "metrics": [
+                        {
+                           "field": "total_run_time",
+                           "id": "1",
+                           "settings": {
+                              "script": "_value/1000/60"
+                           },
+                           "type": "max"
+                        }
+                     ],
+                     "query": "scale:240 AND ocp_version:$ocp_version",
+                     "refId": "D",
+                     "timeField": "timestamp"
                   }
                ],
                "title": "240 Fedora37 VMs(Sec)",
@@ -6691,7 +6729,7 @@
                            "field": "total_run_time",
                            "id": "1",
                            "settings": {
-                              "script": "_value/1000"
+                              "script": "_value/1000/60"
                            },
                            "type": "max"
                         }
