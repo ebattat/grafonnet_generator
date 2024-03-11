@@ -1517,7 +1517,7 @@
                      ],
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -1525,7 +1525,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
@@ -1918,7 +1918,7 @@
                      ],
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -1926,7 +1926,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
@@ -2655,7 +2655,7 @@
                      "hide": false,
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -2663,7 +2663,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
@@ -2715,7 +2715,7 @@
                      "hide": false,
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -2723,7 +2723,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
@@ -6422,7 +6422,7 @@
                      "hide": false,
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -6430,7 +6430,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
@@ -6922,7 +6922,7 @@
                      "hide": false,
                      "metrics": [
                         {
-                           "field": "VM Memory Cache",
+                           "field": "virt launcher Cache",
                            "id": "1",
                            "settings": {
                               "script": "_value/1000000000"
@@ -6930,7 +6930,7 @@
                            "type": "max"
                         },
                         {
-                           "field": "VM Memory working set bytes",
+                           "field": "virt launcher working set bytes",
                            "id": "2",
                            "settings": {
                               "script": "_value/1000000000"
