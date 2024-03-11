@@ -136,6 +136,10 @@
                "mappings": [
                   {
                      "options": {
+                        "": {
+                           "index": 231,
+                           "text": ""
+                        },
                         "0": {
                            "index": 0,
                            "text": "fail"
@@ -187,6 +191,14 @@
                         "150": {
                            "index": 193,
                            "text": "1.5.0"
+                        },
+                        "151": {
+                           "index": 208,
+                           "text": "1.5.1"
+                        },
+                        "152": {
+                           "index": 220,
+                           "text": "1.5.2"
                         },
                         "3025": {
                            "index": 86,
@@ -432,6 +444,10 @@
                            "index": 69,
                            "text": "4.12.1"
                         },
+                        "412102": {
+                           "index": 211,
+                           "text": "4.12.10-2"
+                        },
                         "412116": {
                            "index": 74,
                            "text": "4.12.1-16"
@@ -624,6 +640,10 @@
                            "index": 134,
                            "text": "4.13.2-73"
                         },
+                        "41329": {
+                           "index": 209,
+                           "text": "4.13.29"
+                        },
                         "4133": {
                            "index": 111,
                            "text": "4.13.3"
@@ -695,6 +715,14 @@
                         "4137": {
                            "index": 137,
                            "text": "4.13.7"
+                        },
+                        "41371": {
+                           "index": 216,
+                           "text": "4.13.7-1"
+                        },
+                        "4137315": {
+                           "index": 210,
+                           "text": "4.13.7-315"
                         },
                         "4138": {
                            "index": 141,
@@ -804,6 +832,10 @@
                            "index": 177,
                            "text": "4.14.1"
                         },
+                        "41410": {
+                           "index": 212,
+                           "text": "4.14.10"
+                        },
                         "4141118": {
                            "index": 192,
                            "text": "4.14.1-118"
@@ -815,6 +847,22 @@
                         "4141136": {
                            "index": 195,
                            "text": "4.14.1-136"
+                        },
+                        "41412": {
+                           "index": 217,
+                           "text": "4.14.12"
+                        },
+                        "41413": {
+                           "index": 219,
+                           "text": "4.14.13"
+                        },
+                        "41414": {
+                           "index": 222,
+                           "text": "4.14.14"
+                        },
+                        "41415": {
+                           "index": 224,
+                           "text": "4.14.15"
                         },
                         "414157": {
                            "index": 189,
@@ -856,13 +904,69 @@
                            "index": 188,
                            "text": "4.14.3"
                         },
+                        "4143123": {
+                           "index": 213,
+                           "text": "4.14.3-123"
+                        },
+                        "4143168": {
+                           "index": 214,
+                           "text": "4.14.3-168"
+                        },
+                        "4143196": {
+                           "index": 215,
+                           "text": "4.14.3-196"
+                        },
+                        "414356": {
+                           "index": 207,
+                           "text": "4.14.3-56"
+                        },
                         "4144": {
                            "index": 190,
                            "text": "4.14.4"
                         },
+                        "414413": {
+                           "index": 218,
+                           "text": "4.14.4-13"
+                        },
+                        "4144142": {
+                           "index": 223,
+                           "text": "4.14.4-142"
+                        },
+                        "4144196": {
+                           "index": 225,
+                           "text": "4.14.4-196"
+                        },
+                        "4144200": {
+                           "index": 226,
+                           "text": "4.14.4-200"
+                        },
+                        "4144204": {
+                           "index": 230,
+                           "text": "4.14.4-204"
+                        },
+                        "4144237": {
+                           "index": 232,
+                           "text": "4.14.4-237"
+                        },
+                        "4144248": {
+                           "index": 233,
+                           "text": "4.14.4-248"
+                        },
+                        "4144265": {
+                           "index": 234,
+                           "text": "4.14.4-265"
+                        },
+                        "414496": {
+                           "index": 221,
+                           "text": "4.14.4-96"
+                        },
                         "4145": {
                            "index": 194,
                            "text": "4.14.5"
+                        },
+                        "41459": {
+                           "index": 229,
+                           "text": "4.14.5-9"
                         },
                         "4146": {
                            "index": 196,
@@ -875,6 +979,14 @@
                         "4148": {
                            "index": 205,
                            "text": "4.14.8"
+                        },
+                        "415178": {
+                           "index": 228,
+                           "text": "4.15.1-78"
+                        },
+                        "4152": {
+                           "index": 227,
+                           "text": "4.15.2"
                         },
                         "4814": {
                            "index": 6,
@@ -1064,60 +1176,6 @@
                "timeField": "timestamp"
             },
             {
-               "alias": "KATA op.",
-               "bucketAggs": [
-                  {
-                     "field": "timestamp",
-                     "id": "2",
-                     "settings": {
-                        "interval": "auto"
-                     },
-                     "type": "date_histogram"
-                  }
-               ],
-               "hide": false,
-               "metrics": [
-                  {
-                     "field": "ci_minutes_time",
-                     "id": "1",
-                     "settings": {
-                        "script": "(doc[\"kata_version.keyword\"].value.indexOf(\" \") == -1) ? Integer.parseInt(doc[\"kata_version.keyword\"].value.replace(\".\",\"\")) : 0"
-                     },
-                     "type": "max"
-                  }
-               ],
-               "query": "_exists_:kata_version AND ocp_version:$ocp_version",
-               "refId": "C",
-               "timeField": "timestamp"
-            },
-            {
-               "alias": "Kata rpm",
-               "bucketAggs": [
-                  {
-                     "field": "timestamp",
-                     "id": "2",
-                     "settings": {
-                        "interval": "auto"
-                     },
-                     "type": "date_histogram"
-                  }
-               ],
-               "hide": false,
-               "metrics": [
-                  {
-                     "field": "ci_minutes_time",
-                     "id": "1",
-                     "settings": {
-                        "script": "(doc[\"kata_rpm_version.keyword\"].value.indexOf(\" \") == -1) ? Integer.parseInt(\"0\"+doc[\"kata_rpm_version.keyword\"].value.replace(\".\",\"\").replace(\"r\",\"\").replace(\"c\",\"\").replace(\"f\",\"\").replace(\"-\",\"\")) : 0"
-                     },
-                     "type": "max"
-                  }
-               ],
-               "query": "_exists_:kata_rpm_version AND ocp_version:$ocp_version",
-               "refId": "D",
-               "timeField": "timestamp"
-            },
-            {
                "alias": "ODF op.",
                "bucketAggs": [
                   {
@@ -1141,7 +1199,7 @@
                   }
                ],
                "query": "_exists_:odf_version AND ocp_version:$ocp_version",
-               "refId": "E",
+               "refId": "C",
                "timeField": "timestamp"
             },
             {
@@ -1166,7 +1224,7 @@
                   }
                ],
                "query": "ocp_version:$ocp_version",
-               "refId": "F",
+               "refId": "D",
                "timeField": "timestamp"
             },
             {
@@ -1191,7 +1249,7 @@
                   }
                ],
                "query": "ocp_version:$ocp_version",
-               "refId": "G",
+               "refId": "E",
                "timeField": "timestamp"
             }
          ],
@@ -6885,7 +6943,7 @@
                      "timeField": "timestamp"
                   }
                ],
-               "title": "120 Windows VM Memory",
+               "title": "111 Windows VM Memory",
                "type": "state-timeline"
             }
          ],
