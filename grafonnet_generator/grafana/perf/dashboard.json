@@ -85,7 +85,7 @@
          },
          "id": 2,
          "options": {
-            "content": "![Cloud Governance](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n",
+            "content": "![PerfCi](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n",
             "mode": "markdown"
          },
          "pluginVersion": "v10.0.0",
@@ -1127,7 +1127,7 @@
             {
                "targetBlank": true,
                "title": "CI Status",
-               "url": "https://github.com/redhat-performance/benchmark-runner/actions/workflows/Nightly_Perf_Env_CI.yml"
+               "url": "http://jenkins.perf.lab.eng.bos.redhat.com/view/PerfCI/job/PerfCI-Workloads-Deployment"
             }
          ],
          "options": {
