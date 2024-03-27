@@ -171,7 +171,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
       + g.panel.text.withId('187')
 
-      + g.panel.text.options.withContent('![Cloud Governance](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n')
+      + g.panel.text.options.withContent('![PerfCi](https://www.cielhr.com/wp-content/uploads/2019/10/PerformancewSpace-1080x675.png \"Tooltip Text\")\n')
       + g.panel.text.options.withMode("markdown")
 
       + g.panel.text.withPluginVersion()
@@ -256,7 +256,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
       + stateTimeline.panelOptions.withLinks([
               stateTimeline.link.withTargetBlank(true)
               + stateTimeline.link.withTitle('CI Status')
-              + stateTimeline.link.withUrl('https://github.com/redhat-performance/benchmark-runner/actions/workflows/Nightly_Perf_Env_CI.yml')
+              + stateTimeline.link.withUrl('http://jenkins.perf.lab.eng.bos.redhat.com/view/PerfCI/job/PerfCI-Workloads-Deployment')
 
       ])
 
