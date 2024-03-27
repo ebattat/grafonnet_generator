@@ -1696,6 +1696,7 @@ g.dashboard.new('PerfCI-Regression-Summary-Test')
 
       //////////////////////////////
 
+
        g.panel.row.new("Clusterbuster - Cpusoaker")
        + g.panel.row.withCollapsed(value=true)
 
